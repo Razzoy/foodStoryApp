@@ -1,5 +1,9 @@
+import { Card } from "../components/Card/Card";
+
 export function MyRecipes() {
   return (
-    <div>MyRecipes</div>
-  )
+    <div>
+      <Card />
+    </div>
+  );
 }
