@@ -1,5 +1,3 @@
 export function Card() {
-  return (
-    <div>Card</div>
-  )
+  return <div>Hæhæ var að breyta sma</div>;
 }
