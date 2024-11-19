@@ -1,5 +1,5 @@
 export function Card() {
   return (
-    <div>Card</div>
+    <div className="just">Card</div>
   )
 }
