@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 
 export function Navbar() {
   return (
-    <div className="flex">
+    <div className="flex gap-1">
       <NavLink to="/">
         <img src="src/assets/icons/Home.svg" alt="" />
       </NavLink>
