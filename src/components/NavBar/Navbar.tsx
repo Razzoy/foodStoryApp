@@ -1,19 +1,20 @@
 import { NavLink } from "react-router-dom";
+import { NavBarIcon } from "./NavBarIcon/NavBarIcon";
 
 export function Navbar() {
   return (
-    <div className="flex gap-1">
-      <NavLink to="/">
-        <img src="src/assets/icons/Home.svg" alt="" />
+    <div className="flex justify-between w-full p-3 px-6 fixed bottom-0">
+      <NavLink className={'flex group items-center'} to="/">
+        <NavBarIcon name="Home"/>
       </NavLink>
-      <NavLink to="/myRecipes">
-        <img src="src/assets/icons/Search.svg" alt=""/>
+      <NavLink className={'flex group items-center'} to="/myRecipes">
+        <NavBarIcon name="Search"/>
       </NavLink>
-      <NavLink to="/createRecipe">
-        <img src="src/assets/icons/add.svg" alt="" />
+      <NavLink className={'flex group items-center'} to="/createRecipe">
+      <NavBarIcon name="Add" />
       </NavLink>
-      <NavLink to="/grocery">
-        <img src="src/assets/icons/list.svg" alt="" />
+      <NavLink className={'flex group items-center'} to="/grocery">
+      <NavBarIcon name="List" />
       </NavLink>
     </div>
   )
