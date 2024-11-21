@@ -1,5 +1,5 @@
 export function Grocery() {
   return (
-    <div>Grocery</div>
+    <div>hæ bitch</div>
   )
 }
