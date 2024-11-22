@@ -13,6 +13,7 @@ export default {
         },
         colors: {
           customGreen: "#b2cf99",
+          mainRed:"#FD7463"
         }
     },
   },
