@@ -1,5 +1,3 @@
 export function CreateCard() {
-  return (
-    <div>CreateCard</div>
-  )
+  return <div>hæms</div>;
 }
