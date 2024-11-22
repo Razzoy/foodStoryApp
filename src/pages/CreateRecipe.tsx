@@ -1,12 +1,14 @@
 import { UrlCard } from "@/components/CreateCard/UrlCard/UrlCard";
+import { ScratchCard } from "@/components/CreateCard/ScratchCard/ScratchCard";
 import { CreateCard } from "../components/CreateCard/CreateCard";
+import { PhotoCard } from "@/components/CreateCard/PhotoCard/PhotoCard";
+
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { ScratchCard } from "@/components/CreateCard/ScratchCard/ScratchCard";
 
 export function CreateRecipe() {
   return (
@@ -24,6 +26,14 @@ export function CreateRecipe() {
           <AccordionTrigger>Create from scratch</AccordionTrigger>
           <AccordionContent>
             <ScratchCard />
+          </AccordionContent>
+        </AccordionItem>
+      </Accordion>
+      <Accordion type="single" collapsible>
+        <AccordionItem value="item-1">
+          <AccordionTrigger>Add a photo of recipe</AccordionTrigger>
+          <AccordionContent>
+            <PhotoCard />
           </AccordionContent>
         </AccordionItem>
       </Accordion>
