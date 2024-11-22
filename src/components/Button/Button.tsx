@@ -1,6 +1,8 @@
 
-export function Button() {
+export function Button({title}) {
   return (
-    <div>Button</div>
+    <button>
+      `{title}`
+    </button>
   )
 }
