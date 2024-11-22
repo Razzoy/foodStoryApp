@@ -1,5 +1,3 @@
 export function MyRecipes() {
-  return (
-    <div>MyRecipes</div>
-  )
+  return <div>My Recipes</div>;
 }
