@@ -19,7 +19,6 @@ export function CardApiPlaceholder() {
     useEffect(() => {
         const getRecipes = async () => {
             const { data, error } = await supabase.from("Recipes").select();
-            console.log(data);
             
             if (error) {
                 console.error(`Error fetching recipes: ${error.message}`);
@@ -36,7 +35,7 @@ export function CardApiPlaceholder() {
     }, []);
 
     useEffect(() => {
-        // console.log(recipes);
+        console.log(recipes);
     }, [recipes]);
 
     return (
