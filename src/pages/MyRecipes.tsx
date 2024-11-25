@@ -14,7 +14,6 @@ export function MyRecipes() {
         <Card />
         <Card />
         <Card />
-        <Card />
       </div>
     </div>
   );
