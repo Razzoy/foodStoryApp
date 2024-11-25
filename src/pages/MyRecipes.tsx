@@ -5,11 +5,14 @@ export function MyRecipes() {
     <div>
       <SearchBar />
       <h1 className="font-Nunito text-xl p-4">My recipes</h1>
-      <div className="flex flex-wrap space-x-7 p-4">
+      <div className="flex flex-wrap justify-evenly overflow-y-scroll">
         <Card />
         <Card />
-      </div>
-      <div className="flex flex-wrap space-x-7 p-4">
+        <Card />
+        <Card />
+        <Card />
+        <Card />
+        <Card />
         <Card />
         <Card />
       </div>
