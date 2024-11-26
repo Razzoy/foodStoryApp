@@ -1,7 +1,7 @@
 import { UrlCard } from "@/components/CreateCard/UrlCard/UrlCard";
 import { ScratchCard } from "@/components/CreateCard/ScratchCard/ScratchCard";
-import { CreateCard } from "../components/CreateCard/CreateCard";
 import { PhotoCard } from "@/components/CreateCard/PhotoCard/PhotoCard";
+import { useState } from "react";
 
 import {
   Accordion,
@@ -11,6 +11,7 @@ import {
 } from "@/components/ui/accordion";
 
 export function CreateRecipe() {
+
   return (
     <div className="p-20 flex flex-col gap-5">
       <Accordion type="single" collapsible>

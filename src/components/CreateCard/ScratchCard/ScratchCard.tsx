@@ -5,10 +5,43 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { useState } from "react";
 import { AddIngredient } from "../AddIngredient";
 import { AddInstruction } from "../AddInstruction";
+import React from "react";
+import ReactDOM from "react-dom";
 
 export function ScratchCard() {
+  const [count, setCount] = useState(0);
+
+  function increment() {
+    setCount(count + 1);
+  }
+  function decrement() {
+    if (count === 0) {
+      return 0;
+    }
+    setCount(count - 1);
+  }
+
+  const [ingredientList, setIngredientList] = useState<
+    {
+      name: string;
+      quantity: number;
+      unit: string;
+    }[]
+  >([]);
+
+  // const Ingredient = () => { return <
+
+  //   const Form = () => {
+  //     const [inputList, setInputList] = useState([]);
+
+  //     const onAddBtnClick = event => {
+  //     setInputList(inputList.concat(<Ingredient />));
+  //   };
+
+  function AddIngredientComp() {}
   return (
     <div className="flex flex-col gap-5 items-start self-stretch mt-2">
       <div className="flex flex-col self-start gap-1">
@@ -20,6 +53,7 @@ export function ScratchCard() {
             viewBox="0 0 14 14"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
+            onClick={decrement}
           >
             <g id="minus-sign-stroke-rounded">
               <path
@@ -33,7 +67,7 @@ export function ScratchCard() {
             </g>
           </svg>
           <label htmlFor="" className="self-center text-xl">
-            0
+            {count}
           </label>
           <svg
             width="20"
@@ -41,6 +75,7 @@ export function ScratchCard() {
             viewBox="0 0 24 24"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
+            onClick={increment}
           >
             <g id="plus-sign-stroke-rounded">
               <path
@@ -58,11 +93,17 @@ export function ScratchCard() {
       <div>
         <h2 className="text-xl">Ingredients</h2>
         <div className="flex flex-col items-start gap-3 self-stretch">
-          <AddIngredient />
-          <button className="border-2 border-salmon rounded-xl py-1 px-1.5 self-end">
-            {" "}
-            <img src="/src/assets/icons/Plus.svg" alt="" />
-          </button>
+          {ingredientList.map((ingredient, index) => (
+            <div className="flex gap-4">
+              <p key={index}>{ingredient.name}</p>
+              <p key={index}>{ingredient.quantity}</p>
+              <p key={index}>{ingredient.unit}</p>
+            </div>
+          ))}
+          <AddIngredient
+            onAdd={setIngredientList}
+            currentList={ingredientList}
+          />
         </div>
       </div>
       <div className="flex flex-col items-start gap-3 self-stretch">
