@@ -7,6 +7,7 @@ import { Recipe } from "./pages/Recipe"
 import { Grocery } from "./pages/Grocery"
 import { Login } from "./pages/Login"
 import { NoPage } from "./pages/NoPage"
+import { LogInLayout } from "./layouts/LogInLayout"
 
 function App() {
 
@@ -20,8 +21,11 @@ function App() {
             <Route path='createRecipe' element={<CreateRecipe />} />
             <Route path='grocery' element={<Grocery />} />
             <Route path='recipe' element={<Recipe />} />
-            <Route path='login' element={<Login />} />
+            
             <Route path={'/*'} element={<NoPage />} />
+          </Route>
+          <Route path={'/login'} element={<LogInLayout/>} >
+          <Route index element={<Login />} />
           </Route>
         </Routes>
       </BrowserRouter>
