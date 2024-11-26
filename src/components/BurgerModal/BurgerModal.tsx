@@ -15,11 +15,13 @@ export function BurgerModal() {
             <img className="w-4" src="src/assets/icons/Terms.svg"></img>
             <button className="text-left w-48">Terms and conditions</button>
           </div>
+          <a href="http://localhost:5174/login">
           <div className="flex justify-center p-12">
             <div className="bg-customGreen w-56 rounded-xl flex justify-center">
               <button className="text-white p-2">Log out</button>
             </div>
           </div>
+          </a>
         </div>
         <div className="flex justify-center"></div>
       </div>
