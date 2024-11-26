@@ -12,7 +12,7 @@ export function Navbar() {
   }
 
   return (
-    <div className="flex justify-between w-full p-3 px-6 fixed bottom-0">
+    <div className="flex justify-between w-full p-3 px-6 fixed bottom-0"> 
       <NavLink onClick={()=> toggleActive ("Home")} className={'flex group items-center '} to="/">
         <NavBarIcon name="Home" fill={activeIcon === "Home" ? "#ff7463" : "Black"} stroke=""/>
       </NavLink>
@@ -24,7 +24,7 @@ export function Navbar() {
       </NavLink>
       <NavLink onClick={()=> toggleActive ("List")} className={'flex group items-center'} to="/grocery">
       <NavBarIcon name="List" fill={activeIcon === "List" ? "#ff7463" : "Black"} stroke=""/>
-      </NavLink>
+      </NavLink> 
     </div>
   )
 }
