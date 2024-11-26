@@ -1,5 +1,11 @@
+import { CardApiPlaceholder } from "../components/CardApiPlaceholder/CardApiPlaceholder";
+import UploadRecipe from "../components/CardApiPlaceholder/UploadRecipe/UploadRecipe";
+
 export function CreateRecipe() {
   return (
-    <div>CreateRecipe</div>
+    <div>
+          <CardApiPlaceholder/>
+          <UploadRecipe/>
+    </div>
   )
 }
