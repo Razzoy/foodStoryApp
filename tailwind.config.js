@@ -7,15 +7,15 @@ export default {
   theme: {
     extend: {
       fontFamily:{
-        Nunito: [ "Nunito", "serif"]},
-        fontFamily:{
-          Bodoni: ["Bodoni", "serif"]
-        },
+        Nunito: [ "Nunito", "serif"],
+        Bodoni: ["Bodoni", "serif"]
+      },
         colors: {
           customGreen: "#b2cf99",
+          mainRed:"#FD7463"
         }
+      }
     },
-  },
   plugins: [],
 }
 
