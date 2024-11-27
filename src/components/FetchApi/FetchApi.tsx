@@ -12,7 +12,7 @@ type Recipe = {
     user_id: number;
   };
 
-export function CardApiPlaceholder() {
+export function FetchApi() {
 
     const [recipes, setRecipes] = useState<Recipe[]>([]);
 
