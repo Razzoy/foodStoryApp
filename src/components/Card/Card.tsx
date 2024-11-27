@@ -2,7 +2,7 @@ export function Card() {
   return (
     <div className="bg-[url('/src/assets/img/Cheeseburgers.png')] bg-center bg-cover rounded-xl w-44 h-64 flex flex-col justify-end">
       <div className="bg-gradient-to-t from-lime-800 from 100% rounded-xl h-36 flex flex-col justify-end">
-        <div className="p-2 flex flex-col gap-">
+        <div className="p-2 flex flex-col">
           <h3 className="text-white self-stretch text-sm font-semibold ml-2">
             Hamburgers
           </h3>
