@@ -20,10 +20,11 @@ export function Card({ title, time, image }: CardProps) {
     >
       <div className="bg-gradient-to-t from-lime-800 from 100% rounded-xl h-36 flex flex-col justify-end">
         <div className="p-2 flex flex-col gap-2.5">
-          <h3 className="text-white self-stretch text-sm font-semibold">
+          <h3 className="text-white self-stretch text-sm font-semibold ml-2">
             {title ?? "Cheeseburgers"}
+
           </h3>
-          <div className="flex justify-between pr-4">
+          <div className="flex justify-between p-2">
             <div className="flex items-center gap-1">
               <img src="/src/assets/icons/Watch.svg" alt="" className="w-3" />
               <p className="text-white text-xs">{time ?? "30 min"}</p>

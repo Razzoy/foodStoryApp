@@ -6,7 +6,7 @@ export function Header() {
   return (
     <>
       {!showModal ? (
-        <div className="flex justify-between p-8 bg-white/50 fixed w-full ">
+        <div className="flex justify-between px-8 py-6 bg-white/50 fixed w-full  ">
           <img className="w-[110px]" src="src/assets/icons/Logo.svg" />
           <img
             onClick={() => setShowModal(!showModal)}
@@ -17,7 +17,7 @@ export function Header() {
       ) : (
         <>
           <BurgerModal />
-          <div className="flex justify-between p-8">
+          <div className="flex justify-between p-8 ">
             <img className="w-[110px]" src="src/assets/icons/Logo.svg" />
             <img
               onClick={() => setShowModal(!showModal)}
