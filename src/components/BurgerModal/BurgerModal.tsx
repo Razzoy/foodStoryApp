@@ -1,7 +1,9 @@
-type Props={
-  hidemodal:()=>void
+import { Link } from "react-router-dom";
+
+type Props = {
+  hidemodal: () => void
 }
-export function BurgerModal({hidemodal}:Props) {
+export function BurgerModal({ hidemodal }: Props) {
   return (
     <div className="bg-black/80 fixed w-screen h-screen" onClick={hidemodal}>
       <div className="flex flex-col gap-6 h-full">
@@ -18,13 +20,13 @@ export function BurgerModal({hidemodal}:Props) {
             <img className="w-4" src="src/assets/icons/Terms.svg"></img>
             <button className="text-left w-48">Terms and conditions</button>
           </div>
-          <a href="http://localhost:5174/login">
-          <div className="flex justify-center p-12">
+
+          <Link to="/login" className="flex justify-center p-12">
             <div className="bg-customGreen w-56 rounded-xl flex justify-center">
-              <button className="text-white p-2">Log out</button>
+              <span className="text-white p-2">Log out</span>
             </div>
-          </div>
-          </a>
+          </Link>
+          
         </div>
         <div className="flex justify-center"></div>
       </div>
