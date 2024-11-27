@@ -19,7 +19,7 @@ export function Card({ title, time, image }: CardProps) {
       }}
     >
       <div className="bg-gradient-to-t from-lime-800 from 100% rounded-xl h-36 flex flex-col justify-end">
-        <div className="p-2 flex flex-col gap-2.5">
+        <div className="p-2 flex flex-col">
           <h3 className="text-white self-stretch text-sm font-semibold ml-2">
             {title ?? "Cheeseburgers"}
 
