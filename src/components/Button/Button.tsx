@@ -1,6 +1,6 @@
 
 export function Button() {
   return (
-    <div>Button</div>
+    <div>See more</div>
   )
 }
