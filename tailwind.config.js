@@ -54,14 +54,15 @@ export default {
   				'5': 'hsl(var(--chart-5))'
   			},
 			salmon: '#FF9D91',
-			green: '#B2CF99',
-			
-
+      customGreen: "#b2cf99",
+      mainRed:"#FD7463"
   		},
-		// fontFamily: {
-		// 	'main': ['Nunito', 'sans-serif'],
-		// 	'heading': ['Bodoni 72', 'serif'],
-		// },
+      
+      fontFamily:{
+        Nunito: [ "Nunito", "serif"],
+        Bodoni: ["Bodoni", "serif"]
+      },
+      
   		keyframes: {
   			'accordion-down': {
   				from: {
@@ -86,6 +87,7 @@ export default {
   		}
   	}
   },
-  plugins: [require("tailwindcss-animate")],
+  
+    },
 }
 

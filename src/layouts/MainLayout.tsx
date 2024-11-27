@@ -7,7 +7,7 @@ export function MainLayout() {
   return (
     <>
     <Header/>
-    <main>
+    <main className="py-24">
         <Outlet/>
     </main>
     <Navbar/>
