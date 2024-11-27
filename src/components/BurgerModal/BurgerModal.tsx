@@ -5,7 +5,7 @@ type Props = {
 }
 export function BurgerModal({ hidemodal }: Props) {
   return (
-    <div className="bg-black/80 fixed w-screen h-screen" onClick={hidemodal}>
+    <div className="bg-black/80 fixed w-screen h-screen z-10" onClick={hidemodal}>
       <div className="flex flex-col gap-6 h-full">
         <div className="text-white flex flex-col justify-center gap-2 h-full items-center">
           <div className="flex gap-3">
