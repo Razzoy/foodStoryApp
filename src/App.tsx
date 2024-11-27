@@ -21,7 +21,6 @@ function App() {
             <Route path='createRecipe' element={<CreateRecipe />} />
             <Route path='grocery' element={<Grocery />} />
             <Route path='recipe' element={<Recipe />} />
-            
             <Route path={'/*'} element={<NoPage />} />
           </Route>
           <Route path={'/login'} element={<LogInLayout/>} >
