@@ -110,6 +110,7 @@ export function ScratchCard() {
           <div className="flex gap-4">
             <p key={index}>{index + 1}.</p>
             <p key={index}>{instruction.text}</p>
+            <input type="text" name={instruction.text} id="" />
           </div>
         ))}
         <AddInstruction
