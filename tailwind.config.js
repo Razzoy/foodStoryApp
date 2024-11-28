@@ -54,9 +54,12 @@ export default {
   				'5': 'hsl(var(--chart-5))'
   			},
 			salmon: '#FF9D91',
-      customGreen: "#b2cf99",
-      mainRed:"#FD7463"
+      		customGreen: "#b2cf99",
+      		mainRed:"#FD7463"
   		},
+		gap: {
+			'minus': '-20px'
+		},
       
       fontFamily:{
         Nunito: [ "Nunito", "serif"],
