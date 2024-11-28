@@ -1,139 +1,86 @@
-
-import { useState } from "react";
+import React, { useState, useRef } from "react";
 
 export function Grocery() {
-  console.log ("Grocery component is rendering");
   const [foods, setFoods] = useState([
+    { id: 1, text: '', completed: false }
+  ]);
+  const inputRefs = useRef<HTMLInputElement[]>([]);
 
-    {
-      id:1,
-      text: 'Chicken',
-      completed: true
-    },
-    {
-      id:2,
-      text: 'Yogurt',
-      completed: false
-    }, 
-    {
-      id:3,
-      text: 'Tomato',
-      completed: true
-    },
-    {
-      id:4,
-      text: 'Cucumber',
-      completed: false
-    }, 
-    {
-      id:5,
-      text: '',
-      completed: false,
-      isDisplayOnly: true
-    }, 
-    {
-      id:6,
-      text: '',
-      completed: false,
-      isDisplayOnly: true
-    }, 
-    {
-      id:7,
-      text: '',
-      completed: false,
-      isDisplayOnly: true
-    }, 
-    {
-      id:8,
-      text: '',
-      completed: false,
-      isDisplayOnly: true
-    }, 
-    {
-      id:9,
-      text: '',
-      completed: false,
-      isDisplayOnly: true
-    }, 
-    {
-      id:10,
-      text: '',
-      completed: false,
-      isDisplayOnly: true
-    }, 
-    {
-      id:11,
-      text: '',
-      completed: false,
-      isDisplayOnly: true
-    }, 
-    {
-      id:12,
-      text: '',
-      completed: false,
-      isDisplayOnly: true
-    } 
-  ]
-  );
-  const [text, setText] = useState('');
-
-    function addFood(text:string){
-      if(text.trim()=='') {
-      const newFood = {
-        id: Date.now(),text, 
-        completed: false
-      };
-      setFoods([...foods, newFood]);
-      setText('');
+  function handleKeyDown(event: React.KeyboardEvent<HTMLInputElement>, id: number, index: number) {
+    if (event.key === 'Enter') {
+      event.preventDefault();
+      if (event.currentTarget.value.trim() !== '') {
+        addFood(index + 1);
+        inputRefs.current[index + 1].focus();
+      }
+    } else if (event.key === 'Backspace' && event.currentTarget.value === '') {
+      event.preventDefault();
+      removeFood(id, index);
+      if (index > 0) {
+        inputRefs.current[index - 1].focus();
+      } else {
+        inputRefs.current[0].focus();
       }
     }
-    function deleteFood(id:number) {
-      setFoods(foods.filter(food=>food.id !== id));
+  }
+
+  function addFood(index:number) {
+    const newFood = {
+      id: Date.now(),
+      text: '',
+      completed: false
+    };
+    const newFoods = [...foods];
+    newFoods.splice(index, 0, newFood);
+    setFoods(newFoods);
+  }
+
+  function removeFood(id:number, index:number) {
+    if (foods.length > 1) {
+      const newFoods = foods.filter(food => food.id !== id);
+      setFoods(newFoods);
     }
-      function toggleCompleted (id:number) {
-        setFoods(foods.map(food =>{
-          if (food.id ===id && !food.isDisplayOnly) {
-            return {...food, completed: !food.completed};
-        }
-        	else{
-            return food;
-          }
-      }));
-    }
+  }
 
-            // text 2xl=32 px/
-            return (
-              <div className = " font-nunito p-20 ">
-                <h1 className = "font-semibold text-2xl mb-10">Grocery List</h1> 
-                <ul className = "space-y-3 ">
-                  {foods.map(food => (
-                    <li key={food.id} className="text-[16px]  "> 
-                      <input 
-                        type="checkbox" 
-                        checked={food.completed} 
-                        onChange={() => toggleCompleted(food.id)} 
-                        disabled={false} //*gerir checkbox óvirkt*//
-                        title = {food.text} //when hover over  checkbox, the color change*//
-                        className= "mr-3  h-5 w-5 accent-[#fd614e]" //accent is for the color inside the checkbox*//
+  function updateFoodText(id:number, newText:string) {
+    setFoods(foods.map(food => 
+      food.id === id ? { ...food, text: newText } : food
+    ));
+  }
 
-                      />
-                      {food.text}
-                      {!food.isDisplayOnly && (
+  function toggleCompleted(id:number) {
+    setFoods(foods.map(food => 
+      food.id === id ? { ...food, completed: !food.completed } : food
+    ));
+  }
 
-                      <button onClick={() => deleteFood(food.id)}></button>
-                      )}
-                    </li>
-                  ))}
-                </ul>
-                <input 
-                  value={text} 
-                  onChange={(e) => setText(e.target.value)} 
-                />
-     
+  return (
+    <div className="font-nunito p-20">
+      <h1 className="font-semibold text-2xl mb-10">Grocery List</h1>
+      <ul className="space-y-3">
+        {foods.map((food, index) => (
+          <li key={food.id} className="text-[16px] flex items-center">
+            <input 
+              type="checkbox" 
+              checked={food.completed} 
+              onChange={() => toggleCompleted(food.id)}
+              className="mr-3 h-5 w-5 accent-[#fd614e] flex-shrink-0"
+            />
+            <input
+              type="text"
+              value={food.text}
+              onChange={(e) => updateFoodText(food.id, e.target.value)}
+              onKeyDown={(e) => handleKeyDown(e, food.id, index)}
+              ref={(el) => {
+                if(el) inputRefs.current[index] = el}}
+              className={`bg-transparent focus:outline-none flex-grow ${
+                food.completed ? 'line-through text-gray-500' : ''
+              }`}
+              placeholder={index === foods.length - 1 ? "Add new item..." : ""}
+            />
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }
-
-   
-          
-      
