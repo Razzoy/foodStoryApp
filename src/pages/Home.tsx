@@ -6,7 +6,9 @@ import arrow from "../assets/icons/Arrowright.svg";
 export function Home() {
   return (
     <div>
-      <h1 className="font-Bodoni text-[46px] pl-4">Hi, <strong>Kristín!</strong></h1>
+      <h1 className="font-Bodoni text-[46px] pl-4 py-4">
+        Hi, <strong>Kristín!</strong>
+      </h1>
       <div className="p-4">
         <h2 className="font-Nunito text-[32px] pb-2">My recipes</h2>
         <div className="flex overflow-x-scroll w-full">
@@ -66,8 +68,8 @@ export function Home() {
           </FetchApi>
         </div>
         <div className="w-full flex justify-end pt-4 pr-4">
-            <Link to="myRecipes">View all</Link>
-          </div>
+          <Link to="myRecipes">View all</Link>
+        </div>
       </div>
       <div className="p-4">
         <h1 className="font-Nunito text-[32px] pb-2">Recommendation</h1>
@@ -111,10 +113,9 @@ export function Home() {
           </FetchApi>
         </div>
         <div className="w-full flex justify-end pt-4 pr-4">
-        <Link to="myRecipes">View all</Link>
+          <Link to="myRecipes">View all</Link>
+        </div>
       </div>
-      </div>
-
     </div>
   );
 }
