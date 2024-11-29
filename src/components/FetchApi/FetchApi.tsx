@@ -7,7 +7,7 @@ type Recipe = {
   time: number;
   difficulty: string;
   ingredients: { item: string; amount: number; unit: string }[];
-  instructions: { [key: string]: string }[];
+  instructions: { step: number; instruction: string }[];
   image: string;
   user_id: number;
 };

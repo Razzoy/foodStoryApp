@@ -2,19 +2,19 @@ import { useState } from "react";
 import { FetchApi } from "../FetchApi/FetchApi";
 
 export type IngredientProps = {
-  index?: number;
-  instruction?: { [key: string]: string };
+  step?: number;
+  instruction?: string;
 };
 
-export function Instruction({ instruction, index }: IngredientProps) {
-  console.log("ingredients:", instruction);
+export function Instruction({ instruction, step }: IngredientProps) {
+  console.log("instruction:", instruction);
   if (!instruction) {
     return <h1>spinner</h1>;
   }
   return (
     <div className="flex gap-2 w-full justify-between">
       <p>
-        {index}. {instruction[0]}
+        {step}. {instruction}
       </p>
     </div>
   );

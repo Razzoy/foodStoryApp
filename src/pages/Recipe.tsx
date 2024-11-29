@@ -86,20 +86,19 @@ export function Recipe() {
                           <div className="flex flex-col gap-7 p-4">
                             {recipes
                               ?.filter((recipe) => recipe.id === id)[0]
-                              .instructions.map((instruction, index) => (
-                                <Instruction
-                                  instruction={instruction}
-                                  index={index + 1}
-                                />
-                              ))}
+                              .instructions.map((instruction) => {
+                                console.log(instruction);
+                                return (
+                                  <Instruction
+                                    step={instruction.step}
+                                    instruction={instruction.instruction}
+                                  />
+                                );
+                              })}
                           </div>
                         );
                       }}
                     </FetchApi>
-                  </div>
-                  <div className="flex gap-2">
-                    <p>1.</p>
-                    <p>Turn the oven up to 180 degree</p>
                   </div>
                 </AccordionContent>
               </AccordionItem>
