@@ -23,14 +23,13 @@ export function Header() {
     <>
       <div className="flex justify-between items-center px-8 py-6 bg-white/50 fixed w-full">
         <img className="w-[110px]" src="src/assets/icons/Logo.svg" />
-
-        <div className="hidden md:flex gap-6 items-center">
-          <div className="flex gap-6">
+        <div className="flex gap-6">
+          <div className="hidden md:flex gap-6 items-center">
             <NavLink onClick={() => toggleActive("Home")} to="/">
               <NavBarIcon
                 name="Home"
-                fill={activeIcon === "Home" ? "#ff7463" : "Black"}
-                stroke=""
+                fill=""
+                stroke={activeIcon === "Home" ? "#ff7463" : "Black"}
               />
             </NavLink>
             <NavLink onClick={() => toggleActive("Search")} to="/myRecipes">
@@ -57,12 +56,10 @@ export function Header() {
           </div>
           <img
             onClick={() => setShowModal(!showModal)}
-            className="hover:cursor-pointer"
+            className="hover:cursor-pointer w-7"
             src="src/assets/icons/Burger.svg"
           />
         </div>
-
-
       </div>
 
       {showModal && (

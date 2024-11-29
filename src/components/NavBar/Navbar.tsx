@@ -19,8 +19,8 @@ export function Navbar() {
       >
         <NavBarIcon
           name="Home"
-          fill={activeIcon === "Home" ? "#ff7463" : "Black"}
-          stroke=""
+          fill=""
+          stroke={activeIcon === "Home" ? "#ff7463" : "Black"}
         />
       </NavLink>
       <NavLink
