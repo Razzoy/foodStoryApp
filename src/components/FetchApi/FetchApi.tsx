@@ -10,6 +10,7 @@ type Recipe = {
   instructions: { step: number; instruction: string }[];
   image: string;
   user_id: number;
+  servings: number;
 };
 
 export function FetchApi({

@@ -11,11 +11,14 @@ export function MyRecipes() {
         {(recipes) => (
           <div className="flex flex-wrap gap-7 p-4">
             {recipes.map((recipe) => (
-              <Card
-              key={recipe.id}
-              title={recipe.title}
-              time={`${recipe.time}` + ` min`}
-              image={recipe.image} />
+              <a href={"/recipe/" + recipe.id}>
+                <Card
+                  key={recipe.id}
+                  title={recipe.title}
+                  time={`${recipe.time}` + ` min`}
+                  image={recipe.image}
+                />
+              </a>
             ))}
           </div>
         )}

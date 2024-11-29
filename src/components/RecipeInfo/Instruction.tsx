@@ -13,7 +13,7 @@ export function Instruction({ instruction, step }: IngredientProps) {
   }
   return (
     <div className="flex gap-2 w-full justify-between">
-      <p>
+      <p className="font-Nunito">
         {step}. {instruction}
       </p>
     </div>

@@ -13,7 +13,7 @@ export function Ingredient({ ingredient }: IngredientProps) {
   }
   return (
     <div className="flex gap-2 w-full justify-between">
-      <p>
+      <p className="font-Nunito">
         {ingredient.amount ?? 3} {ingredient.unit ?? "cups"}{" "}
         {ingredient.item ?? "flour"}
       </p>
