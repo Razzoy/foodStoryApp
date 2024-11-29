@@ -1,43 +1,119 @@
-
+import { Link } from "react-router-dom";
 import { Card } from "../components/Card/Card";
+import { FetchApi } from "@/components/FetchApi/FetchApi";
+import arrow from "../assets/icons/Arrowright.svg";
 
 export function Home() {
   return (
-
-    <div className="">
+    <div>
+      <h1 className="font-Bodoni text-[46px] pl-4 py-4">
+        Hi, <strong>Kristín!</strong>
+      </h1>
       <div className="p-4">
-        <h1 className="font-Nunito text-xl pb-2">My recipes</h1>
-        <div className="flex overflow-scroll w-full">
-          <div className="flex space-x-7">
-            <Card title="lasagna" time="1 klst" />
-            <Card />
-            <Card />
-            <Card />
-          </div>
+        <h2 className="font-Nunito text-[32px] pb-2">My recipes</h2>
+        <div className="flex overflow-x-scroll w-full">
+          <FetchApi>
+            {(recipes) => (
+              <div className="flex space-x-7">
+                {recipes.map((recipe) => (
+                  <Card
+                    key={recipe.id}
+                    title={recipe.title}
+                    time={`${recipe.time}` + ` min`}
+                    image={recipe.image}
+                  />
+                ))}
+                <div className="h-full flex items-center">
+                  <Link to="myRecipes">
+                    <img src={arrow}></img>
+                  </Link>
+                </div>
+              </div>
+            )}
+          </FetchApi>
+        </div>
+        <div className="w-full flex justify-end pt-4 pr-4">
+          <Link to="myRecipes">View all</Link>
         </div>
       </div>
       <div className="p-4">
-        <h1 className="font-Nunito text-xl pb-2 ">Favorites</h1>
-        <div className="flex  overflow-scroll w-full">
-          <div className="flex space-x-7">
-
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-            <button>See more</button>
-          </div>
+        <h1 className="font-Nunito text-[32px] pb-2">Favorites</h1>
+        <div className="flex overflow-x-scroll w-full">
+          <FetchApi>
+            {(recipes) => (
+              <div className="flex space-x-7">
+                {recipes.length < 0 ? (
+                  recipes.map((recipe) => (
+                    <Card
+                      key={recipe.id}
+                      title={recipe.title}
+                      time={`${recipe.time} min`}
+                      image={recipe.image}
+                    />
+                  ))
+                ) : (
+                  <Card
+                    title="No Recipes Found"
+                    time="N/A"
+                    image="/path/to/placeholder-image.png" // Replace with your placeholder image path
+                  />
+                )}
+                <div className="h-full flex items-center">
+                  <Link to="myRecipes">
+                    <img src={arrow}></img>
+                  </Link>
+                </div>
+              </div>
+            )}
+          </FetchApi>
+        </div>
+        <div className="w-full flex justify-end pt-4 pr-4">
+          <Link to="myRecipes">View all</Link>
         </div>
       </div>
       <div className="p-4">
-        <h1 className="font-Nunito text-xl pb-2">Recommendation</h1>
-        <div className="flex overflow-scroll w-full">
-          <div className="flex space-x-7">
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-          </div>
+        <h1 className="font-Nunito text-[32px] pb-2">Recommendation</h1>
+        <div className="flex overflow-x-scroll w-full">
+          <FetchApi>
+            {(recipes) => {
+              // Shuffle the recipes array
+              const shuffledRecipes = [...recipes].sort(
+                () => 0.5 - Math.random()
+              );
+
+              // Get the first 3 recipes from the shuffled array
+              const randomRecipes = shuffledRecipes.slice(0, 3);
+
+              return (
+                <div className="flex space-x-7">
+                  {randomRecipes.length > 0 ? (
+                    randomRecipes.map((recipe) => (
+                      <Card
+                        key={recipe.id}
+                        title={recipe.title}
+                        time={`${recipe.time} min`}
+                        image={recipe.image}
+                      />
+                    ))
+                  ) : (
+                    <Card
+                      title="No Recipes Found"
+                      time="N/A"
+                      image="/path/to/placeholder-image.png" // Replace with your placeholder image path
+                    />
+                  )}
+                  <div className="h-full flex items-center">
+                    <Link to="myRecipes">
+                      <img src={arrow}></img>
+                    </Link>
+                  </div>
+                </div>
+              );
+            }}
+          </FetchApi>
+        </div>
+        <div className="w-full flex justify-end pt-4 pr-4">
+          <Link to="myRecipes">View all</Link>
         </div>
       </div>
     </div>
