@@ -10,6 +10,7 @@ type Recipe = {
   instructions: { step: number; instruction: string }[];
   image: string;
   user_id: number;
+  favorite: boolean;
   servings: number;
 };
 
@@ -29,21 +30,10 @@ export function FetchApi({
       } else if (data) {
         setRecipes(data as Recipe[]);
       }
-      // } else {
-      //     if (data && Array.isArray(data)) {
-      //         setRecipes(data);
-      //     } else {
-      //         console.warn("Unexpected data format:", data);
-      //     }
-      // }
     };
 
     getRecipes();
   }, []);
-
-  useEffect(() => {
-    console.log("recipes", recipes);
-  }, [recipes]);
 
   return children(recipes);
 }

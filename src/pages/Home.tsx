@@ -15,7 +15,7 @@ export function Home() {
           <FetchApi>
             {(recipes) => (
               <div className="flex space-x-7">
-                {recipes.map((recipe) => (
+                {recipes.slice(0, 3).map((recipe) => (
                   <a href={"/recipe/" + recipe.id}>
                     <Card
                       key={recipe.id}
