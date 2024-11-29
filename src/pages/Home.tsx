@@ -16,12 +16,14 @@ export function Home() {
             {(recipes) => (
               <div className="flex space-x-7">
                 {recipes.map((recipe) => (
-                  <Card
-                    key={recipe.id}
-                    title={recipe.title}
-                    time={`${recipe.time}` + ` min`}
-                    image={recipe.image}
-                  />
+                  <a href={"/recipe/" + recipe.id}>
+                    <Card
+                      key={recipe.id}
+                      title={recipe.title}
+                      time={`${recipe.time}` + ` min`}
+                      image={recipe.image}
+                    />
+                  </a>
                 ))}
                 <div className="h-full flex items-center">
                   <Link to="myRecipes">
