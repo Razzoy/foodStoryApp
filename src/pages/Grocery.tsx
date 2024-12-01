@@ -1,19 +1,21 @@
 import React, { useState, useRef } from "react";
 
 export function Grocery() {
-  const [foods, setFoods] = useState([
-    { id: 1, text: '', completed: false }
-  ]);
+  const [foods, setFoods] = useState([{ id: 1, text: "", completed: false }]);
   const inputRefs = useRef<HTMLInputElement[]>([]);
 
-  function handleKeyDown(event: React.KeyboardEvent<HTMLInputElement>, id: number, index: number) {
-    if (event.key === 'Enter') {
+  function handleKeyDown(
+    event: React.KeyboardEvent<HTMLInputElement>,
+    id: number,
+    index: number
+  ) {
+    if (event.key === "Enter") {
       event.preventDefault();
-      if (event.currentTarget.value.trim() !== '') {
+      if (event.currentTarget.value.trim() !== "") {
         addFood(index + 1);
         inputRefs.current[index + 1].focus();
       }
-    } else if (event.key === 'Backspace' && event.currentTarget.value === '') {
+    } else if (event.key === "Backspace" && event.currentTarget.value === "") {
       event.preventDefault();
       removeFood(id, index);
       if (index > 0) {
@@ -24,34 +26,36 @@ export function Grocery() {
     }
   }
 
-  function addFood(index:number) {
+  function addFood(index: number) {
     const newFood = {
       id: Date.now(),
-      text: '',
-      completed: false
+      text: "",
+      completed: false,
     };
     const newFoods = [...foods];
     newFoods.splice(index, 0, newFood);
     setFoods(newFoods);
   }
 
-  function removeFood(id:number, index:number) {
+  function removeFood(id: number, index: number) {
     if (foods.length > 1) {
-      const newFoods = foods.filter(food => food.id !== id);
+      const newFoods = foods.filter((food) => food.id !== id);
       setFoods(newFoods);
     }
   }
 
-  function updateFoodText(id:number, newText:string) {
-    setFoods(foods.map(food => 
-      food.id === id ? { ...food, text: newText } : food
-    ));
+  function updateFoodText(id: number, newText: string) {
+    setFoods(
+      foods.map((food) => (food.id === id ? { ...food, text: newText } : food))
+    );
   }
 
-  function toggleCompleted(id:number) {
-    setFoods(foods.map(food => 
-      food.id === id ? { ...food, completed: !food.completed } : food
-    ));
+  function toggleCompleted(id: number) {
+    setFoods(
+      foods.map((food) =>
+        food.id === id ? { ...food, completed: !food.completed } : food
+      )
+    );
   }
 
   return (
@@ -60,9 +64,9 @@ export function Grocery() {
       <ul className="space-y-3">
         {foods.map((food, index) => (
           <li key={food.id} className="text-[16px] flex items-center">
-            <input 
-              type="checkbox" 
-              checked={food.completed} 
+            <input
+              type="checkbox"
+              checked={food.completed}
               onChange={() => toggleCompleted(food.id)}
               className="mr-3 h-5 w-5 accent-[#fd614e] flex-shrink-0"
             />
@@ -72,9 +76,10 @@ export function Grocery() {
               onChange={(e) => updateFoodText(food.id, e.target.value)}
               onKeyDown={(e) => handleKeyDown(e, food.id, index)}
               ref={(el) => {
-                if(el) inputRefs.current[index] = el}}
+                if (el) inputRefs.current[index] = el;
+              }}
               className={`bg-transparent focus:outline-none flex-grow ${
-                food.completed ? 'line-through text-gray-500' : ''
+                food.completed ? "line-through text-gray-500" : ""
               }`}
               placeholder={index === foods.length - 1 ? "Add new item..." : ""}
             />

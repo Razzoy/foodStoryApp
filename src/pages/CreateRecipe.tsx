@@ -1,9 +1,3 @@
-
 export function CreateRecipe() {
-
-  return (
-    <div>
-    </div>
-  )
-
+  return <div></div>;
 }
