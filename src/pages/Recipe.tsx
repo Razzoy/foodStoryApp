@@ -12,6 +12,7 @@ import { Instruction } from "@/components/RecipeInfo/Instruction";
 import { FetchApi } from "@/components/FetchApi/FetchApi";
 import { useParams } from "react-router-dom";
 import { useState } from "react";
+import HeartIcon from "@/assets/icons/Heart";
 
 export function Recipe() {
   // const id = "4c02fb42-cd45-4c83-a608-6b6cb5b2a764";
@@ -27,20 +28,42 @@ export function Recipe() {
   function decrement() {
     setCount(count - 1);
   }
+  const [isLiked, setIsLiked] = useState(false);
 
   return (
     <>
       <div className="flex flex-col gap-5">
-        <FetchApi>
-          {(recipes) => {
-            return (
-              <img
-                src={recipes?.find((recipe) => recipe.id === id)?.image}
-                className="w-full h-[400px] object-cover object-center"
-              />
-            );
-          }}
-        </FetchApi>
+        <div className="relative">
+          <FetchApi>
+            {(recipes) => {
+              return (
+                <img
+                  src={recipes?.find((recipe) => recipe.id === id)?.image}
+                  className="w-full h-[400px] object-cover object-center"
+                />
+              );
+            }}
+          </FetchApi>
+          <FetchApi>
+            {(recipes) => {
+              return (
+                <div className="absolute z-10 top-4 right-4 bg-white/50 rounded-lg flex justify-center p-2">
+                  <button onClick={() => setIsLiked(!isLiked)}>
+                    <HeartIcon
+                      fill={
+                        recipes?.find((recipe) => recipe.id === id)?.favorite
+                          ? "#FD7463"
+                          : "none"
+                      }
+                      height={30}
+                      width={30}
+                    />
+                  </button>
+                </div>
+              );
+            }}
+          </FetchApi>
+        </div>
         <div className="flex flex-col gap-5 mx-4">
           <FetchApi>
             {(recipes) => {
@@ -51,7 +74,6 @@ export function Recipe() {
               );
             }}
           </FetchApi>
-
           <div className="flex flex-row items-center justify-between">
             <div className="flex flex-col items-center">
               <div className="flex self-start gap-2 items-center w-full">
@@ -67,7 +89,7 @@ export function Recipe() {
                     );
                   }}
                 </FetchApi>
-                <button>
+                <button onClick={increment}>
                   <img src="/src/assets/icons/Plus.svg" alt="" />
                 </button>
               </div>
@@ -99,8 +121,8 @@ export function Recipe() {
             </div>
           </div>
         </div>
-        <div className="flex flex-col ">
-          <Accordion type="single" collapsible className="">
+        <div className="flex flex-col">
+          <Accordion type="single" collapsible className="translate-y-5">
             <AccordionItem
               value="item-1"
               className=" border-customGreen pb-7 rounded-none rounded-t-xl w-full"
@@ -131,7 +153,7 @@ export function Recipe() {
               </AccordionContent>
             </AccordionItem>
           </Accordion>
-          <Accordion type="single" collapsible className="-translate-y-5">
+          <Accordion type="single" collapsible className="z-[1]">
             <AccordionItem
               value="item-1"
               className="bg-customGreen border-none pb-7 rounded-none rounded-t-xl w-full"

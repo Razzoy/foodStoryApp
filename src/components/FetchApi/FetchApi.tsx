@@ -10,6 +10,7 @@ type Recipe = {
   instructions: { step: number; instruction: string }[];
   image: string;
   user_id: number;
+  favorite: boolean;
   servings: number;
 };
 
