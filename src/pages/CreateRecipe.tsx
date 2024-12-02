@@ -53,7 +53,10 @@ export function CreateRecipe() {
 
   //   const handleImg=
 
-  const saveData = (e: { preventDefault: () => void; target: HTMLFormElement | undefined; }) => {
+  const saveData = (e: {
+    preventDefault: () => void;
+    target: HTMLFormElement | undefined;
+  }) => {
     e.preventDefault();
 
     const data = new FormData(e.target);
@@ -84,7 +87,7 @@ export function CreateRecipe() {
         <div className=" flex flex-col items-center">
           <img
             className="flex -center w-12 p-2"
-            src="src/assets/icons/Muscle.svg"
+            src="/src/assets/icons/Muscle.svg"
           />
           <Select name="select">
             <SelectTrigger className="w-[100px]">
@@ -98,7 +101,7 @@ export function CreateRecipe() {
           </Select>
         </div>
         <div className=" flex flex-col items-center">
-          <img className="w-12 p-2" src="src/assets/icons/blackWatch.svg" />
+          <img className="w-12 p-2" src="/src/assets/icons/blackWatch.svg" />
           <input
             className="outline-none w-[50px]"
             placeholder="Time"
