@@ -14,7 +14,7 @@ import {
 import { ScratchCard } from "@/components/CreateCard/ScratchCard/ScratchCard";
 import { PhotoCard } from "@/components/CreateCard/PhotoCard/PhotoCard";
 import { UrlCard } from "@/components/CreateCard/UrlCard/UrlCard";
-import { useState } from "react";
+import { useState, FormEvent } from "react";
 import { supabase } from "../lib/supabaseClient";
 
 export function CreateRecipe() {
@@ -53,16 +53,19 @@ export function CreateRecipe() {
 
   //   const handleImg=
 
-  const saveData = (e: {
-    preventDefault: () => void;
-    target: HTMLFormElement | undefined;
-  }) => {
+  const saveData = (e: FormEvent) => {
     e.preventDefault();
 
-    const data = new FormData(e.target);
+    const data = new FormData(e.target as HTMLFormElement);
+
     // now move it
     console.log(data.entries());
     data.forEach((d) => console.log(d));
+
+    let obj = Object.fromEntries(data.entries());
+    obj.ingredients = JSON.parse(obj.ingredients.toString());
+    console.log("obj: ", obj);
+
     for (var p of data) {
       let name = p[0];
       let value = p[1];
