@@ -12,7 +12,7 @@ export function Home() {
 
       {/* My Recipes Section */}
       <div className="p-4">
-        <h2 className="font-Nunito text-[32px] pb-2">My recipes</h2>
+        <h2 className="font-Nunito text-[28px] pb-2">My recipes</h2>
         <div className="flex overflow-x-scroll w-full">
           <FetchApi>
             {(recipes) => (
@@ -43,7 +43,7 @@ export function Home() {
 
       {/* Favorites Section */}
       <div className="p-4">
-        <h2 className="font-Nunito text-[32px] pb-2">Favorites</h2>
+        <h2 className="font-Nunito text-[28px] pb-2">Favorites</h2>
         <div className="flex overflow-x-scroll w-full">
           <FetchApi>
             {(recipes) => (
@@ -83,7 +83,7 @@ export function Home() {
 
       {/* Recommendations Section */}
       <div className="p-4">
-        <h2 className="font-Nunito text-[32px] pb-2">Recommendation</h2>
+        <h2 className="font-Nunito text-[28px] pb-2">Recommendation</h2>
         <div className="flex overflow-x-scroll w-full">
           <FetchApi>
             {(recipes) => {
