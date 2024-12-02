@@ -24,8 +24,12 @@ export function Header() {
 
   return (
     <>
-      <div className="flex justify-between items-center px-8 py-6 bg-white/50 fixed w-full">
-        <img className="w-[110px]" src="src/assets/icons/Logo.svg" />
+
+      {!showModal ? (
+        <div className="flex z-10 justify-between px-8 py-6 bg-white/50 fixed w-full">
+          <img className="w-[110px]" src="src/assets/icons/Logo.svg" />
+
+     
         <div className="flex gap-6">
           <div className="hidden md:flex gap-6 items-center">
             <NavLink onClick={() => toggleActive("Home")} to="/">
@@ -57,6 +61,7 @@ export function Header() {
               />
             </NavLink>
           </div>
+
           <img
             onClick={() => setShowModal(!showModal)}
             className="hover:cursor-pointer w-7"
