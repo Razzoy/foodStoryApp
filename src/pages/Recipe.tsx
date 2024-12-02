@@ -304,7 +304,7 @@ export function Recipe() {
         console.log("recipe bitch", recipe);
 
         return (
-          <div className="flex flex-col gap-5">
+          <div className="flex flex-col items-stretch">
             {/* Recipe Image and Like Button */}
             <div className="relative">
               <img
