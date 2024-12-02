@@ -24,6 +24,7 @@ export function CreateRecipe() {
 
 
 
+
   //code for meal image 
   const handleAddImages = (image:string) => {
   console.log(image)
@@ -117,6 +118,9 @@ for (var p of data) {
             <AccordionTrigger>Photo</AccordionTrigger>
             <AccordionContent>
             <PhotoCard test="second" imageUrls={screenShots} handleAdd={handleAddScreenShot} handleRemoveImage={handleRemoveScreenshot}/>
+
+  )
+
 
             {/* <PhotoCard imageUrl={screenShot ? URL.createObjectURL(screenShot):undefined} handleSelectImage={setScreenShot}/>           */}
               </AccordionContent>
