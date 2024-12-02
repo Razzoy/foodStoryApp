@@ -6,7 +6,7 @@ export function MainLayout() {
   return (
     <>
       <Header />
-      <main className="min-h-screen">
+      <main className="min-h-screen-footer-nav md:min-h-screen-nav">
         <Outlet />
       </main>
       <Navbar />

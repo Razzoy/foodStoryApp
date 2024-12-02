@@ -61,7 +61,11 @@ export default {
 		gap: {
 			'minus': '-20px'
 		},
-
+		minHeight: {
+			'screen-footer-nav': 'calc(100vh - 130px)',
+			'screen-nav': 'calc(100vh - 65px)',
+		},
+      
       fontFamily:{
         Nunito: [ "Nunito", "serif"],
         Bodoni: ["Bodoni", "serif"]

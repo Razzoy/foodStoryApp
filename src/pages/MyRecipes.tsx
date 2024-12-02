@@ -17,9 +17,9 @@ export function MyRecipes() {
                   title={recipe.title}
                   time={`${recipe.time}` + ` min`}
                   image={recipe.image}
+                  favorite={recipe.favorite}
                 />
               </div>
-
             ))}
           </div>
         )}

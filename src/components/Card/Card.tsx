@@ -6,13 +6,11 @@ export type CardProps = {
   time?: string;
   image?: string;
   recipeId?: string;
+  favorite?: boolean;
 };
 
-export function Card({ title, time, image, recipeId }: CardProps) {
-  const [isLiked, setIsLiked] = useState(false);
-
-  //url('/src/assets/img/Cheeseburgers.png')
-
+export function Card({ title, time, image, recipeId, favorite }: CardProps) {
+  if (!recipeId || favorite === undefined) return <h2>loading...</h2>;
   return (
     <div className="relative">
       <a
@@ -38,12 +36,7 @@ export function Card({ title, time, image, recipeId }: CardProps) {
           </div>
         </div>
       </a>
-      <button
-        onClick={() => setIsLiked(!isLiked)}
-        className="absolute z-10 bottom-4 right-4"
-      >
-        <HeartIcon fill={isLiked ? "#FD7463" : "none"} />
-      </button>
+      <HeartIcon recipeID={recipeId} isFavorite={favorite} />
     </div>
   );
 }
