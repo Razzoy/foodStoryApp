@@ -5,11 +5,13 @@ import { useState, useEffect } from "react";
 
 export function Header() {
   const [showModal, setShowModal] = useState(false);
+
   const [activeIcon, setActiveIcon] = useState("Home");
 
   const toggleActive = (icon: string) => {
     setActiveIcon(icon);
   };
+
 
   useEffect(() => {
     if (showModal) {
@@ -18,6 +20,7 @@ export function Header() {
       document.body.style.overflow = "visible";
     }
   }, [showModal]);
+
 
   return (
     <>
@@ -65,6 +68,20 @@ export function Header() {
       {showModal && (
         <BurgerModal hidemodal={() => setShowModal(!showModal)} />
       )}
+
+  /* console.log(showModal);
+  return (
+    <>
+      <div className="flex justify-between px-8 py-3 bg-white sticky top-0 w-full z-50">
+        <img className="w-[90px]" src="/src/assets/icons/Logo.svg" />
+        <img
+          onClick={() => setShowModal(!showModal)}
+          className=""
+          src="/src/assets/icons/Burger.svg"
+        ></img>
+      </div>
+      {showModal && <BurgerModal hidemodal={() => setShowModal(!showModal)} />} #Code from conflicts */
+
     </>
   );
 }

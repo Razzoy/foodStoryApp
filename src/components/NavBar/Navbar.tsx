@@ -2,7 +2,6 @@ import { NavLink } from "react-router-dom";
 import { NavBarIcon } from "./NavBarIcon/NavBarIcon";
 import { useState } from "react";
 
-
 export function Navbar() {
   const [activeIcon, setActiveIcon] = useState("Home");
 
@@ -11,16 +10,19 @@ export function Navbar() {
   };
 
   return (
+
     <div className="flex justify-between w-full p-3 px-6 fixed bottom-0 bg-white md:hidden">
       <NavLink
         onClick={() => toggleActive("Home")}
         className={"flex group items-center"}
+
         to="/"
       >
         <NavBarIcon
           name="Home"
           fill=""
           stroke={activeIcon === "Home" ? "#ff7463" : "Black"}
+
         />
       </NavLink>
       <NavLink

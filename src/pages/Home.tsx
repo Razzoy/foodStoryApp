@@ -17,13 +17,14 @@ export function Home() {
               <div className="flex space-x-7">
                 {recipes.slice(0, 3).map((recipe) => (
                   <a href={"/recipe/" + recipe.id}>
+
                     <Card
-                      key={recipe.id}
                       title={recipe.title}
                       time={`${recipe.time}` + ` min`}
                       image={recipe.image}
+                      recipeId={recipe.id}
                     />
-                  </a>
+                  </div>
                 ))}
                 <div className="h-full flex items-center">
                   <Link to="myRecipes">
@@ -46,19 +47,23 @@ export function Home() {
               <div className="flex space-x-7">
                 {recipes.length < 0 ? (
                   recipes.map((recipe) => (
-                    <Card
-                      key={recipe.id}
-                      title={recipe.title}
-                      time={`${recipe.time} min`}
-                      image={recipe.image}
-                    />
+                    <div className="w-44">
+                      <Card
+                        key={recipe.id}
+                        title={recipe.title}
+                        time={`${recipe.time} min`}
+                        image={recipe.image}
+                      />
+                    </div>
                   ))
                 ) : (
-                  <Card
-                    title="No Recipes Found"
-                    time="N/A"
-                    image="/path/to/placeholder-image.png" // Replace with your placeholder image path
-                  />
+                  <div className="w-44">
+                    <Card
+                      title="No Recipes Found"
+                      time="N/A"
+                      image="/path/to/placeholder-image.png" // Replace with your placeholder image path
+                    />
+                  </div>
                 )}
                 <div className="h-full flex items-center">
                   <Link to="myRecipes">
@@ -90,12 +95,14 @@ export function Home() {
                 <div className="flex space-x-7">
                   {randomRecipes.length > 0 ? (
                     randomRecipes.map((recipe) => (
-                      <Card
-                        key={recipe.id}
-                        title={recipe.title}
-                        time={`${recipe.time} min`}
-                        image={recipe.image}
-                      />
+                      <div className="w-44">
+                        <Card
+                          key={recipe.id}
+                          title={recipe.title}
+                          time={`${recipe.time} min`}
+                          image={recipe.image}
+                        />
+                      </div>
                     ))
                   ) : (
                     <Card
