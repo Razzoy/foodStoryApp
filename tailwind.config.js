@@ -1,11 +1,12 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-    darkMode: ["class"],
-    content: [
+  darkMode: ["class"],
+  content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
+
   	extend: {
   		borderRadius: {
   			lg: 'var(--radius)',
@@ -54,39 +55,23 @@ export default {
   				'5': 'hsl(var(--chart-5))'
   			},
 			salmon: '#FF9D91',
-      customGreen: "#b2cf99",
-      mainRed:"#FD7463"
+      		customGreen: "#b2cf99",
+      		mainRed:"#FD7463"
   		},
-      
+		gap: {
+			'minus': '-20px'
+		},
+
       fontFamily:{
         Nunito: [ "Nunito", "serif"],
         Bodoni: ["Bodoni", "serif"]
       },
-      
-  		keyframes: {
-  			'accordion-down': {
-  				from: {
-  					height: '0'
-  				},
-  				to: {
-  					height: 'var(--radix-accordion-content-height)'
-  				}
-  			},
-  			'accordion-up': {
-  				from: {
-  					height: 'var(--radix-accordion-content-height)'
-  				},
-  				to: {
-  					height: '0'
-  				}
-  			}
-  		},
-  		animation: {
-  			'accordion-down': 'accordion-down 0.2s ease-out',
-  			'accordion-up': 'accordion-up 0.2s ease-out'
-  		}
-  	}
-  },
-  
-    }
+        colors: {
+          customGreen: "#b2cf99",
+          mainRed:"#FD7463"
+          }
+        }
+      },
+  plugins: [],
+}
 

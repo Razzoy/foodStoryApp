@@ -5,7 +5,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { SetStateAction, useState } from "react";
+import { useState } from "react";
 
 export function AddIngredient({
   onAdd,

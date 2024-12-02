@@ -1,19 +1,10 @@
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { AddIngredient } from "../AddIngredient";
 import { AddInstruction } from "../AddInstruction";
-import React from "react";
-import ReactDOM from "react-dom";
+
 
 export function ScratchCard() {
   const [count, setCount] = useState(0);
-
   function increment() {
     setCount(count + 1);
   }
@@ -64,6 +55,7 @@ export function ScratchCard() {
             </svg>
           </button>
           <label htmlFor="" className="self-center text-xl">
+            <input value={count} type="hidden" name="servings"></input>
             {count}
           </label>
           <button onClick={increment}>
@@ -92,12 +84,16 @@ export function ScratchCard() {
         <h2 className="text-base">Ingredients</h2>
         <div className="flex flex-col items-start gap-3 self-stretch">
           {ingredientList.map((ingredient, index) => (
+            <>
             <div className="flex gap-1">
               <p key={index}>{ingredient.quantity}</p>
               <p key={index}>{ingredient.unit}</p>
               <p key={index}>{ingredient.name}</p>
             </div>
+            </>
           ))}
+          <input type="hidden" name="ingredients" value={JSON.stringify(ingredientList)} />
+          
           <AddIngredient
             onAdd={setIngredientList}
             currentList={ingredientList}
@@ -112,6 +108,7 @@ export function ScratchCard() {
             <p key={index}>{instruction.text}</p>
           </div>
         ))}
+         <input type="hidden" name="instruction" value={JSON.stringify(instructionList)} />
         <AddInstruction
           onAdd={setInstructionList}
           currentInstructionList={instructionList}
