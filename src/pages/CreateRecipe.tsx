@@ -115,7 +115,7 @@ export function CreateRecipe() {
       </h1>
       <div className="flex flex-col items-center gap-4 ">
         <Accordion type="single" collapsible>
-          <AccordionItem value="item-1">
+          <AccordionItem className="border-salmon" value="item-1">
             <AccordionTrigger>Create from scratch</AccordionTrigger>
             <AccordionContent>
               <ScratchCard />

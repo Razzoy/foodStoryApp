@@ -54,9 +54,6 @@ export default {
   				'4': 'hsl(var(--chart-4))',
   				'5': 'hsl(var(--chart-5))'
   			},
-			salmon: '#FF9D91',
-      		customGreen: "#b2cf99",
-      		mainRed:"#FD7463"
   		},
 		gap: {
 			'minus': '-20px'
@@ -72,7 +69,10 @@ export default {
       },
         colors: {
           customGreen: "#b2cf99",
-          mainRed:"#FD7463"
+          mainRed:"#FD7463",
+		  salmon: '#FF9D91',
+    		customGreen: "#b2cf99",
+      		mainRed:"#FD7463"
           }
         }
       },
