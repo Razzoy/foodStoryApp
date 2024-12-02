@@ -6,7 +6,7 @@ type Props = {
 export function BurgerModal({ hidemodal }: Props) {
   return (
     <div
-      className="bg-black/80 fixed w-screen h-screen inset-0 z-[100]"
+      className="bg-black/80 fixed w-screen h-screen inset-0 z-[150]"
       onClick={hidemodal}
     >
       <div className="flex flex-col gap-6 h-full">

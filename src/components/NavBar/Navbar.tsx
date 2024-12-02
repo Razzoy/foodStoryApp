@@ -11,7 +11,7 @@ export function Navbar() {
 
   return (
 
-    <div className="flex justify-between w-full p-3 px-6 fixed bottom-0 bg-white md:hidden">
+    <div className="flex justify-between w-full p-3 px-6 fixed bottom-0 bg-white md:hidden z-[100]">
       <NavLink
         onClick={() => toggleActive("Home")}
         className={"flex group items-center"}
