@@ -6,16 +6,17 @@ export function MyRecipes() {
   return (
     <div>
       <SearchBar />
-      <h1 className="font-Nunito text-xl p-4">My recipes</h1>
+      <h1 className="font-Nunito text-[28px] p-4">My recipes</h1>
       <FetchApi>
         {(recipes) => (
           <div className="flex flex-wrap gap-7 p-4">
             {recipes.map((recipe) => (
               <Card
-              key={recipe.id}
-              title={recipe.title}
-              time={`${recipe.time}` + ` min`}
-              image={recipe.image} />
+                key={recipe.id}
+                title={recipe.title}
+                time={`${recipe.time}` + ` min`}
+                image={recipe.image}
+              />
             ))}
           </div>
         )}

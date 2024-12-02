@@ -10,7 +10,7 @@ export function Home() {
         Hi, <strong>Kristín!</strong>
       </h1>
       <div className="p-4">
-        <h2 className="font-Nunito text-[32px] pb-2">My recipes</h2>
+        <h2 className="font-Nunito text-[28px] pb-2">My recipes</h2>
         <div className="flex overflow-x-scroll w-full">
           <FetchApi>
             {(recipes) => (
@@ -37,7 +37,7 @@ export function Home() {
         </div>
       </div>
       <div className="p-4">
-        <h1 className="font-Nunito text-[32px] pb-2">Favorites</h1>
+        <h1 className="font-Nunito text-[28px] pb-2">Favorites</h1>
         <div className="flex overflow-x-scroll w-full">
           <FetchApi>
             {(recipes) => (
@@ -72,7 +72,7 @@ export function Home() {
         </div>
       </div>
       <div className="p-4">
-        <h1 className="font-Nunito text-[32px] pb-2">Recommendation</h1>
+        <h1 className="font-Nunito text-[28px] pb-2">Recommendation</h1>
         <div className="flex overflow-x-scroll w-full">
           <FetchApi>
             {(recipes) => {
