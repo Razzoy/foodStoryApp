@@ -13,7 +13,7 @@ export function Header() {
   return (
     <>
       {!showModal ? (
-        <div className="flex justify-between px-8 py-6 bg-white/50 fixed w-full">
+        <div className="flex z-10 justify-between px-8 py-6 bg-white/50 fixed w-full">
           <img className="w-[110px]" src="src/assets/icons/Logo.svg" />
           <img
             onClick={() => setShowModal(!showModal)}
