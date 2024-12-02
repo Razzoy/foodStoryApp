@@ -5,21 +5,24 @@ import { useState } from "react";
 export function Navbar() {
   const [activeIcon, setActiveIcon] = useState("Home");
 
-  const toggleActive = (icon) => {
+  const toggleActive = (icon: string) => {
     setActiveIcon(icon);
   };
 
   return (
-    <div className="flex justify-between w-full p-3 px-6 sticky bottom-0 z-50 bg-white">
+
+    <div className="flex justify-between w-full p-3 px-6 fixed bottom-0 bg-white md:hidden">
       <NavLink
         onClick={() => toggleActive("Home")}
-        className={"flex group items-center "}
+        className={"flex group items-center"}
+
         to="/"
       >
         <NavBarIcon
           name="Home"
-          fill={activeIcon === "Home" ? "#ff7463" : "Black"}
-          stroke=""
+          fill=""
+          stroke={activeIcon === "Home" ? "#ff7463" : "Black"}
+
         />
       </NavLink>
       <NavLink

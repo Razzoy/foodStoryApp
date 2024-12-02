@@ -57,14 +57,20 @@
     --chart-5: 340 75% 55%
   }
 }
-@layer base {
+@layer base { /*
   * {
     @apply border-border;
   }
   body {
     @apply bg-background text-foreground;
   }
-  /* @font-face {
+  input {
+    @apply font-Nunito;
+  }
+  button {
+    @apply font-Nunito
+  }
+   @font-face {
     font-family: 'Bodoni 72';
     font-style: normal;
     font-weight: 400;
