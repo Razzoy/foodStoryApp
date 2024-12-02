@@ -27,7 +27,6 @@ export function Grocery() {
   }
 
   function addFood(index: number) {
-    console.log(index);
     const newFood = {
       id: Date.now(),
       text: "",
@@ -35,7 +34,6 @@ export function Grocery() {
     };
     const newFoods = [...foods];
     newFoods.splice(index, 0, newFood);
-    console.log(newFoods)
     setFoods(newFoods);
   }
 
@@ -62,41 +60,57 @@ export function Grocery() {
       )
     );
   }
-  console.log(foods);
+
+  function removeCheckedItems() {
+    const remainingFoods = foods.filter((food) => !food.completed);
+    if (remainingFoods.length === 0) {
+      setFoods([{ id: Date.now(), text: "", completed: false }]);
+    } else {
+      setFoods(remainingFoods);
+    }
+  }
+
   return (
     <>
-      <div className="font-nunito p-20">
-        <h1 className="font-Nunito text-[28px] mb-10">Grocery List</h1>
-        <ul className="space-y-3">
-          {foods.map((food, index) => (
-            <li key={food.id} className="text-[16px] flex items-center">
-              <input
-                type="checkbox"
-                checked={food.completed}
-                onChange={() => toggleCompleted(food.id)}
-                className="mr-3 h-5 w-5 accent-[#fd614e] flex-shrink-0"
-              />
-              <input
-                type="text"
-                value={food.text}
-                onChange={(e) => updateFoodText(food.id, e.target.value)}
-                onKeyDown={(e) => handleKeyDown(e, food.id, index)}
-                ref={(el) => {
-                  if (el) inputRefs.current[index] = el;
-                }}
-                className={`bg-transparent focus:outline-none flex-grow ${
-                  food.completed ? "line-through text-gray-500" : ""
-                }`}
-                placeholder={
-                  index === foods.length - 1 ? "Add new item..." : ""
-                }
-              />
-            </li>
-          ))}
-        </ul>
-      </div>
-      <div className="bg-customGreen w-36 rounded-xl flex justify-center ml-60 mt-96">
-        <span className="text-black p-2">Finish</span>
+      <div className="h-full flex flex-col">
+        <div className="font-nunito px-20">
+          <h1 className="font-Nunito text-[28px] mb-10">Grocery List</h1>
+          <ul className="space-y-3 h-[65vh] overflow-y-auto">
+            {foods.map((food, index) => (
+              <li key={food.id} className="text-[16px] flex items-center">
+                <input
+                  type="checkbox"
+                  checked={food.completed}
+                  onChange={() => toggleCompleted(food.id)}
+                  className="mr-3 h-5 w-5 accent-[#fd614e] flex-shrink-0"
+                />
+                <input
+                  type="text"
+                  value={food.text}
+                  onChange={(e) => updateFoodText(food.id, e.target.value)}
+                  onKeyDown={(e) => handleKeyDown(e, food.id, index)}
+                  ref={(el) => {
+                    if (el) inputRefs.current[index] = el;
+                  }}
+                  className={`bg-transparent focus:outline-none flex-grow ${
+                    food.completed ? "line-through text-gray-500" : ""
+                  }`}
+                  placeholder={
+                    index === foods.length - 1 ? "Add new item..." : ""
+                  }
+                />
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div className="flex justify-end px-5 pt-5">
+          <button
+            className="bg-customGreen w-36 rounded-xl flex justify-center text-black p-2"
+            onClick={removeCheckedItems}
+          >
+            Finish
+          </button>
+        </div>
       </div>
     </>
   );
