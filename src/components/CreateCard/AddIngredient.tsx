@@ -49,9 +49,9 @@ export function AddIngredient({
         />
         <Select onValueChange={(value) => setUnit(value)} value={unit}>
           <SelectTrigger className="w-[180px]">
-            <SelectValue placeholder="Unit" />
+            <SelectValue placeholder="Unit " />
           </SelectTrigger>
-          <SelectContent>
+          <SelectContent className="bg-white">
             <SelectItem value="tsp.">Teaspoon</SelectItem>
             <SelectItem value="tbsp.">Tablespoon</SelectItem>
             <SelectItem value="cups">Cups</SelectItem>
