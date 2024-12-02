@@ -53,7 +53,7 @@ export function CreateRecipe() {
 
   //   const handleImg=
 
-  const saveData = (e) => {
+  const saveData = (e: { preventDefault: () => void; target: HTMLFormElement | undefined; }) => {
     e.preventDefault();
 
     const data = new FormData(e.target);
@@ -129,7 +129,6 @@ export function CreateRecipe() {
                 handleAdd={handleAddScreenShot}
                 handleRemoveImage={handleRemoveScreenshot}
               />
-              )
               {/* <PhotoCard imageUrl={screenShot ? URL.createObjectURL(screenShot):undefined} handleSelectImage={setScreenShot}/>           */}
             </AccordionContent>
           </AccordionItem>

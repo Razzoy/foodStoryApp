@@ -17,14 +17,13 @@ export function Home() {
               <div className="flex space-x-7">
                 {recipes.slice(0, 3).map((recipe) => (
                   <a href={"/recipe/" + recipe.id}>
-
                     <Card
                       title={recipe.title}
                       time={`${recipe.time}` + ` min`}
                       image={recipe.image}
                       recipeId={recipe.id}
                     />
-                  </div>
+                  </a>
                 ))}
                 <div className="h-full flex items-center">
                   <Link to="myRecipes">
