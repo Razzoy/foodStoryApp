@@ -81,7 +81,7 @@ const Section: React.FC<SectionProps> = ({
   <div className="p-4">
     <h2 className="font-Nunito text-[28px] pb-2">{title}</h2>
     <div className="flex overflow-x-scroll w-full">
-      <div className="flex space-x-7">
+      <div className="flex gap-6">
         {recipes.length > 0 ? (
           recipes.map((recipe) => (
             <div key={recipe.id} className="w-44">
