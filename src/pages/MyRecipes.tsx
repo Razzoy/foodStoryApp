@@ -9,7 +9,7 @@ export function MyRecipes() {
       <h1 className="font-Nunito text-[28px] p-4">My recipes</h1>
       <FetchApi>
         {(recipes) => (
-          <div className="grid grid-cols-12 gap-4 sm:gap-7 p-4">
+          <div className="grid grid-cols-12 gap-6 sm:gap-7 p-4">
             {recipes.map((recipe) => (
               <div className="col-span-6 xs:col-span-4 md:col-span-3 xl:col-span-2">
                 <Card
