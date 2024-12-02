@@ -22,7 +22,7 @@ export function Header() {
   return (
     <>
       {!showModal ? (
-        <div className="flex z-50 justify-between px-8 py-3 bg-white sticky top-0 w-full">
+        <div className="flex z-50 justify-between px-4 py-4 bg-gradient-to-br from-white to-transparent backdrop-blur-sm sticky top-0 w-full">
           <img className="w-[90px]" src="/src/assets/icons/Logo.svg" />
 
           <div className="flex gap-6">
