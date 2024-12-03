@@ -206,7 +206,7 @@ import { Instruction } from "@/components/RecipeInfo/Instruction";
 import { FetchApi } from "@/components/FetchApi/FetchApi";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import HeartIcon from "@/assets/icons/Heart";
+import HeartIcon from "@/components/HeartIcon/HeartIcon";
 import { supabase } from "@/lib/supabaseClient";
 
 type Recipe = {
