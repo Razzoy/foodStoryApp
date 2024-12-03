@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { AddIngredient } from "../AddIngredient";
 import { AddInstruction } from "../AddInstruction";
 
-
 export function ScratchCard() {
   const [count, setCount] = useState(0);
   function increment() {
@@ -34,7 +33,7 @@ export function ScratchCard() {
       <div className="flex flex-col self-start gap-1">
         <p className="text-sm">How many servings?</p>
         <div className="flex self-start gap-2 items-center">
-          <button onClick={decrement}>
+          <button onClick={decrement} type="button">
             <svg
               width="18"
               height="18"
@@ -47,9 +46,9 @@ export function ScratchCard() {
                   id="Vector"
                   d="M11.6667 7H2.33337"
                   stroke="black"
-                  stroke-width="1.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                 />
               </g>
             </svg>
@@ -58,7 +57,7 @@ export function ScratchCard() {
             <input value={count} type="hidden" name="servings"></input>
             {count}
           </label>
-          <button onClick={increment}>
+          <button onClick={increment} type="button">
             <svg
               width="20"
               height="20"
@@ -71,44 +70,45 @@ export function ScratchCard() {
                   id="Vector"
                   d="M12 4V20M20 12H4"
                   stroke="black"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                 />
               </g>
             </svg>
           </button>
         </div>
       </div>
-      <div>
-        <h2 className="text-base">Ingredients</h2>
-        <div className="flex flex-col items-start gap-3 self-stretch">
-          {ingredientList.map((ingredient, index) => (
-            <>
-            <div className="flex gap-1">
-              <p key={index}>{ingredient.quantity}</p>
-              <p key={index}>{ingredient.unit}</p>
-              <p key={index}>{ingredient.name}</p>
-            </div>
-            </>
-          ))}
-          <input type="hidden" name="ingredients" value={JSON.stringify(ingredientList)} />
-          
-          <AddIngredient
-            onAdd={setIngredientList}
-            currentList={ingredientList}
-          />
-        </div>
+      <h2 className="text-base">Ingredients</h2>
+      <div className="flex flex-col items-start gap-3 self-stretch">
+        {ingredientList.map((ingredient, index) => (
+          <div className="flex gap-1" key={index}>
+            <p>{ingredient.quantity}</p>
+            <p>{ingredient.unit}</p>
+            <p>{ingredient.name}</p>
+          </div>
+        ))}
+        <input
+          type="hidden"
+          name="ingredients"
+          value={JSON.stringify(ingredientList)}
+        />
+
+        <AddIngredient onAdd={setIngredientList} currentList={ingredientList} />
       </div>
       <h2 className="text-base">Instructions</h2>
       <div className="flex flex-col items-start gap-3 self-stretch">
         {instructionList.map((instruction, index) => (
-          <div className="flex gap-4">
-            <p key={index}>{index + 1}.</p>
-            <p key={index}>{instruction.text}</p>
+          <div className="flex gap-4" key={index}>
+            <p>{index + 1}.</p>
+            <p>{instruction.text}</p>
           </div>
         ))}
-         <input type="hidden" name="instruction" value={JSON.stringify(instructionList)} />
+        <input
+          type="hidden"
+          name="instruction"
+          value={JSON.stringify(instructionList)}
+        />
         <AddInstruction
           onAdd={setInstructionList}
           currentInstructionList={instructionList}

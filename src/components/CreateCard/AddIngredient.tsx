@@ -29,6 +29,7 @@ export function AddIngredient({
   const [count, setCount] = useState(0);
   const [name, setName] = useState("");
   const [unit, setUnit] = useState("");
+
   return (
     <div className="flex flex-col gap-2">
       <div className="flex justify-between items-center self-stretch w-full text-sm gap-2">
@@ -48,7 +49,7 @@ export function AddIngredient({
           className="border-b-2 w-1/5 text-center outline-none focus:border-black"
         />
         <Select onValueChange={(value) => setUnit(value)} value={unit}>
-          <SelectTrigger className="w-[180px]">
+          <SelectTrigger className="w-[180px]" type="button">
             <SelectValue placeholder="Unit " />
           </SelectTrigger>
           <SelectContent className="bg-white">
@@ -65,8 +66,14 @@ export function AddIngredient({
         </Select>
       </div>
       <button
-        onClick={() => onAdd([...currentList, { name, quantity: count, unit }])}
+        onClick={() => {
+          onAdd([...currentList, { name, quantity: count, unit }]);
+          setName("");
+          setCount(0);
+          setUnit("");
+        }}
         className="border-2 border-salmon rounded-xl py-1 px-1.5 self-end"
+        type="button"
       >
         {" "}
         <img src="/src/assets/icons/Plus.svg" alt="" />
