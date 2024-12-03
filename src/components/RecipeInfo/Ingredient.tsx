@@ -31,9 +31,9 @@ export function Ingredient({ ingredient }: IngredientProps) {
                 id="Vector"
                 d="M12 4V20M20 12H4"
                 stroke="black"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               />
             </g>
           </svg>

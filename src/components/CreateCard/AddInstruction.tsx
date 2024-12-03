@@ -25,14 +25,18 @@ export function AddInstruction({
           type="text"
           placeholder="Write the 1. step of the process..."
           className="border-b-2 w-full outline-none focus:border-black"
-          onChange={(e) => setText(e.target.value) }
+          onChange={(e) => setText(e.target.value)}
           value={text}
           id=""
           name=""
         />
       </div>
       <button
-        onClick={() => onAdd([...currentInstructionList, { text }])}
+        type="button"
+        onClick={() => {
+          onAdd([...currentInstructionList, { text }]);
+          setText("");
+        }}
         className="border-2 border-salmon rounded-xl py-1 px-1.5 self-end"
       >
         {" "}

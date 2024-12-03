@@ -16,8 +16,10 @@ import { PhotoCard } from "@/components/CreateCard/PhotoCard/PhotoCard";
 import { UrlCard } from "@/components/CreateCard/UrlCard/UrlCard";
 import { useState, FormEvent } from "react";
 import { supabase } from "../lib/supabaseClient";
+import { useNavigate } from "react-router-dom";
 
 export function CreateRecipe() {
+  const navigate = useNavigate();
   const [mealImage, setMealImage] = useState<string[]>([]);
   const [screenShots, setScreenShots] = useState<string[]>([]);
   // const [imageUrls, setImageUrls]= useState<string[]>([]);
@@ -56,21 +58,41 @@ export function CreateRecipe() {
   const saveData = (e: FormEvent) => {
     e.preventDefault();
 
-    const data = new FormData(e.target as HTMLFormElement);
+    console.log("form submitted");
 
-    // now move it
-    console.log(data.entries());
-    data.forEach((d) => console.log(d));
+    const data = new FormData(e.target as HTMLFormElement);
 
     let obj = Object.fromEntries(data.entries());
     obj.ingredients = JSON.parse(obj.ingredients.toString());
-    console.log("obj: ", obj);
+    obj.instruction = JSON.parse(obj.instruction.toString());
 
-    for (var p of data) {
-      let name = p[0];
-      let value = p[1];
+    console.log("obj:", obj);
+    AddNewRecipeToSupabase(obj);
+  };
 
-      console.log(name, value);
+  const AddNewRecipeToSupabase = async (obj: {
+    [k: string]: FormDataEntryValue;
+  }) => {
+    try {
+      // Update Supabase
+      const response = await supabase.from("Recipes").insert({
+        title: obj.title,
+        time: obj.time,
+        difficulty: obj.select,
+        ingredients: obj.ingredients,
+        instructions: obj.instruction,
+        image: "",
+        servings: obj.servings,
+      });
+
+      if (response.error) throw response.error;
+
+      // redirect on success
+      if (response.status === 201) {
+        navigate("/myRecipes");
+      }
+    } catch (error) {
+      console.error("Error updating favorite:", error);
     }
   };
   return (
@@ -93,7 +115,7 @@ export function CreateRecipe() {
             src="/src/assets/icons/Muscle.svg"
           />
           <Select name="select">
-            <SelectTrigger className="w-[100px]">
+            <SelectTrigger type="button" className="w-[100px]">
               <SelectValue placeholder="Difficulty" />
             </SelectTrigger>
             <SelectContent className="bg-white">
@@ -105,21 +127,26 @@ export function CreateRecipe() {
         </div>
         <div className=" flex flex-col items-center">
           <img className="w-12 p-2" src="/src/assets/icons/blackWatch.svg" />
-          <input
-            className="outline-none w-[50px]"
-            placeholder="Time"
-            name="time"
-          />
+          <div className="flex gap-1">
+            <input
+              className="outline-salmon w-[50px] text-center border-b-2 border-salmon focus:border-none"
+              placeholder="0"
+              name="time"
+            />
+            <p>min</p>
+          </div>
         </div>
       </div>
       <h1 className="text-xl flex justify-center p-6">
         {" "}
         How would you like to add the recipe?{" "}
       </h1>
-      <div className="flex flex-col items-center gap-4 ">
+      <div className="flex flex-col items-center gap-4 mb-10">
         <Accordion type="single" collapsible>
           <AccordionItem className="border-salmon" value="item-1">
-            <AccordionTrigger>Create from scratch</AccordionTrigger>
+            <AccordionTrigger type="button">
+              Create from scratch
+            </AccordionTrigger>
             <AccordionContent>
               <ScratchCard />
             </AccordionContent>
@@ -127,7 +154,9 @@ export function CreateRecipe() {
         </Accordion>
         <Accordion type="single" collapsible>
           <AccordionItem value="item-1">
-            <AccordionTrigger>Photo</AccordionTrigger>
+            <AccordionTrigger type="button">
+              Add a photo of recipe
+            </AccordionTrigger>
             <AccordionContent>
               <PhotoCard
                 test="second"
@@ -141,13 +170,18 @@ export function CreateRecipe() {
         </Accordion>
         <Accordion type="single" collapsible>
           <AccordionItem value="item-1">
-            <AccordionTrigger>URL</AccordionTrigger>
+            <AccordionTrigger type="button">
+              Add recipe with URL link
+            </AccordionTrigger>
             <AccordionContent>
               <UrlCard />
             </AccordionContent>
           </AccordionItem>
         </Accordion>
-        <button className="bg-customGreen cursor-pointer border-2 border-customGreen hover:bg-white  hover:border-2 hover: hover:text-black py-1 px-6 rounded-lg">
+        <button
+          type="submit"
+          className="bg-customGreen cursor-pointer border-2 border-customGreen hover:bg-white  hover:border-2 hover: hover:text-black py-1 px-6 rounded-lg"
+        >
           Save
         </button>
       </div>
