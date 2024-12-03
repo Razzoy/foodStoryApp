@@ -23,7 +23,9 @@ export function Header() {
     <>
       {!showModal ? (
         <div className="flex z-50 justify-between px-4 py-4 bg-gradient-to-br from-white to-transparent backdrop-blur-sm sticky top-0 w-full">
-          <img className="w-[90px]" src="/src/assets/icons/Logo.svg" />
+          <NavLink to={"/"}>
+            <img className="w-[90px]" src="/src/assets/icons/Logo.svg" />
+          </NavLink>
 
           <div className="flex gap-6">
             <div className="hidden md:flex gap-6 items-center">
