@@ -5,12 +5,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
+import { AccordionComponent } from "@/components/AccordionComponent/AccordionComponent";
 import { ScratchCard } from "@/components/CreateCard/ScratchCard/ScratchCard";
 import { PhotoCard } from "@/components/CreateCard/PhotoCard/PhotoCard";
 import { UrlCard } from "@/components/CreateCard/UrlCard/UrlCard";
@@ -142,42 +137,20 @@ export function CreateRecipe() {
         How would you like to add the recipe?{" "}
       </h1>
       <div className="flex flex-col items-center gap-4 mb-10">
-        <Accordion type="single" collapsible>
-          <AccordionItem className="border-salmon" value="item-1">
-            <AccordionTrigger type="button">
-              Create from scratch
-            </AccordionTrigger>
-            <AccordionContent>
-              <ScratchCard />
-            </AccordionContent>
-          </AccordionItem>
-        </Accordion>
-        <Accordion type="single" collapsible>
-          <AccordionItem value="item-1">
-            <AccordionTrigger type="button">
-              Add a photo of recipe
-            </AccordionTrigger>
-            <AccordionContent>
-              <PhotoCard
-                test="second"
-                imageUrls={screenShots}
-                handleAdd={handleAddScreenShot}
-                handleRemoveImage={handleRemoveScreenshot}
-              />
-              {/* <PhotoCard imageUrl={screenShot ? URL.createObjectURL(screenShot):undefined} handleSelectImage={setScreenShot}/>           */}
-            </AccordionContent>
-          </AccordionItem>
-        </Accordion>
-        <Accordion type="single" collapsible>
-          <AccordionItem value="item-1">
-            <AccordionTrigger type="button">
-              Add recipe with URL link
-            </AccordionTrigger>
-            <AccordionContent>
-              <UrlCard />
-            </AccordionContent>
-          </AccordionItem>
-        </Accordion>
+        <AccordionComponent title="Create from scratch">
+          <ScratchCard />
+        </AccordionComponent>
+        <AccordionComponent title="Add a photo of recipe">
+          <PhotoCard
+            test="second"
+            imageUrls={screenShots}
+            handleAdd={handleAddScreenShot}
+            handleRemoveImage={handleRemoveScreenshot}
+          />
+        </AccordionComponent>
+        <AccordionComponent title="Add recipe with URL link">
+          <UrlCard />
+        </AccordionComponent>
         <button
           type="submit"
           className="bg-customGreen cursor-pointer border-2 border-customGreen hover:bg-white  hover:border-2 hover: hover:text-black py-1 px-6 rounded-lg"
