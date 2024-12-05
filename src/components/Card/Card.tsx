@@ -1,5 +1,4 @@
 import HeartIcon from "@/components/HeartIcon/HeartIcon";
-import { useState } from "react";
 
 export type CardProps = {
   title?: string;

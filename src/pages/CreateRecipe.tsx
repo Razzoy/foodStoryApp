@@ -27,7 +27,10 @@ export function CreateRecipe() {
 
   const handleRemoveImage = (indexToRemove: number) => {
     const newScreenshots = mealImage.filter(
-      (mealImage, index) => index !== indexToRemove
+      (mealImage, index) => {
+        console.log(mealImage);
+        return index !== indexToRemove
+      }
     );
     setMealImage(newScreenshots);
   };
@@ -40,7 +43,10 @@ export function CreateRecipe() {
 
   const handleRemoveScreenshot = (indexToRemove: number) => {
     const newScreenshots = screenShots.filter(
-      (screenShot, index) => index !== indexToRemove
+      (screenShot, index) => {
+        console.log(screenShot);
+        return index !== indexToRemove
+      }
     );
     setScreenShots(newScreenshots);
   };
@@ -57,7 +63,7 @@ export function CreateRecipe() {
 
     const data = new FormData(e.target as HTMLFormElement);
 
-    let obj = Object.fromEntries(data.entries());
+    const obj = Object.fromEntries(data.entries());
     obj.ingredients = JSON.parse(obj.ingredients.toString());
     obj.instruction = JSON.parse(obj.instruction.toString());
 
