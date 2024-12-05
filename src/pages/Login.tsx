@@ -1,16 +1,18 @@
 import { Link } from "react-router-dom";
+import logo from "@/assets/icons/Logo.svg";
+import mainPicture from "@/assets/icons/mainPicture.svg";
 
 export function Login() {
   return (
     <div className="w-full flex justify-center p-8">
       <div className="flex flex-col max-w-md  ">
-        <img className="flex justify-left flex-wrap w-[110px]  " src="src/assets/icons/Logo.svg"></img>
+        <img className="flex justify-left flex-wrap w-[110px]  " src={logo}></img>
         <div className="flex flex-col mt-10 gap-4">
           <h1 className="text-3xl font-bold flex font-Bodoni">Cook What You Have,</h1>
           <h2 className="text-xl font-Bodoni italic  ">Discover What You Love!</h2>
         </div>
         <div className="flex justify-center">
-          <img className=" " src="src/assets/icons/mainPicture.svg"></img>
+          <img className=" " src={mainPicture}></img>
         </div>
         <h2 className="mb-4 font-Nunito flex justify-center text-wrap text-xl"> Login</h2>
         <div className="flex items-center flex-col p-4 text-neutral-400">
