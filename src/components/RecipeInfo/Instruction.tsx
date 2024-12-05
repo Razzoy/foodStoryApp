@@ -1,6 +1,3 @@
-import { useState } from "react";
-import { FetchApi } from "../FetchApi/FetchApi";
-
 export type IngredientProps = {
   step?: number;
   instruction?: string;

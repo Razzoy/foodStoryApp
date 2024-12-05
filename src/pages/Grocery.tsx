@@ -42,6 +42,8 @@ export function Grocery() {
       const newFoods = foods.filter((food) => food.id !== id);
       setFoods(newFoods);
     }
+    console.log(index);
+    
   }
 
   function updateFoodText(id: number, newText: string) {
