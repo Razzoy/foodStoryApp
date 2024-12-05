@@ -6,6 +6,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { useState } from "react";
+import plus from "@/assets/icons/Plus.svg"
 
 export function AddIngredient({
   onAdd,
@@ -76,7 +77,7 @@ export function AddIngredient({
         type="button"
       >
         {" "}
-        <img src="/src/assets/icons/Plus.svg" alt="" />
+        <img src={plus} alt="" />
       </button>
     </div>
   );
