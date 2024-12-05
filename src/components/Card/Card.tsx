@@ -1,4 +1,5 @@
 import HeartIcon from "@/components/HeartIcon/HeartIcon";
+import watch from "@/assets/icons/Watch.svg"
 
 export type CardProps = {
   title?: string;
@@ -28,7 +29,7 @@ export function Card({ title, time, image, recipeId, favorite }: CardProps) {
             </h3>
             <div className="flex justify-between p-2">
               <div className="flex items-center gap-1">
-                <img src="/src/assets/icons/Watch.svg" alt="" className="w-3" />
+                <img src={watch} alt="" className="w-3" />
                 <p className="text-white text-xs">{time ?? "30 min"}</p>
               </div>
             </div>

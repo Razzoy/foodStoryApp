@@ -13,7 +13,7 @@ import { useState, FormEvent } from "react";
 import { supabase } from "../lib/supabaseClient";
 import { useNavigate } from "react-router-dom";
 import muscle from "@/assets/icons/Muscle.svg";
-import clock from "@/assets/icons/Watch.svg";
+import clock from "@/assets/icons/blackWatch.svg";
 
 export function CreateRecipe() {
   const navigate = useNavigate();

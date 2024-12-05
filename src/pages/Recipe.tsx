@@ -11,6 +11,11 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import HeartIcon from "@/components/HeartIcon/HeartIcon";
 import { supabase } from "@/lib/supabaseClient";
+import plus from "@/assets/icons/Plus.svg";
+import minus from "@/assets/icons/Minus.svg";
+import clock from "@/assets/icons/blackWatch.svg";
+import muscle from "@/assets/icons/Muscle.svg";
+
 
 type Recipe = {
   id: string;
@@ -117,25 +122,25 @@ export function Recipe() {
                 <div className="flex flex-col items-center">
                   <div className="flex self-start gap-2 items-center w-full">
                     <button onClick={handleDecrement}>
-                      <img src="/src/assets/icons/Minus.svg" alt="Decrease" />
+                      <img src={minus} alt="Decrease" />
                     </button>
                     <p className="text-2xl font-Nunito">{serving}</p>
                     <button onClick={handleIncrement}>
-                      <img src="/src/assets/icons/Plus.svg" alt="Increase" />
+                      <img src={plus} alt="Increase" />
                     </button>
                   </div>
                   <p className="font-Nunito">Serving</p>
                 </div>
                 {/* Time */}
                 <div className="flex flex-col items-center gap-2">
-                  <img src="/src/assets/icons/blackWatch.svg" alt="Time" />
+                  <img src={clock} alt="Time" />
                   <p className="font-Nunito whitespace-nowrap">
                     {recipe.time} min
                   </p>
                 </div>
                 {/* Difficulty */}
                 <div className="flex flex-col items-center gap-2">
-                  <img src="/src/assets/icons/Muscle.svg" alt="Difficulty" />
+                  <img src={muscle} alt="Difficulty" />
                   <p className="font-Nunito">{recipe.difficulty}</p>
                 </div>
               </div>
