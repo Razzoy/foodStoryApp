@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export function Login() {
   return (
     <div className="w-full flex justify-center p-8">
@@ -10,8 +12,7 @@ export function Login() {
         <div className="flex justify-center">
           <img className=" " src="src/assets/icons/mainPicture.svg"></img>
         </div>
-
-        <h1 className="font-Nunito flex justify-center text-wrap text-xl"> Login</h1>
+        <h2 className="mb-4 font-Nunito flex justify-center text-wrap text-xl"> Login</h2>
         <div className="flex items-center flex-col p-4 text-neutral-400">
           <div className="border-2 border-customGreen rounded-lg w-80 flex  cursor-pointer p-2 ">
             <input className="text-left font-Nunito w-80 outline-none" placeholder="Email" />
@@ -22,18 +23,16 @@ export function Login() {
             <input type="password" className="text-left font-Nunito w-80 outline-none" placeholder="Password" />
           </div>
         </div>
-        <a href="http://localhost:5174/">
         <div className="flex justify-center p-4">
-          <div className="border-2 border-customGreen rounded-xl w-80 p-2 bg-customGreen flex justify-center  ">
-            <button className="font-Nunito  ">
-              Get started
-            </button>
-          </div>
+
+          <Link to="/" className="border-2 border-customGreen rounded-xl w-80 p-2 mt-4 bg-customGreen flex justify-center items-center font-Nunito text-white text-center">
+            Get started
+          </Link>
+          
         </div>
-        </a>
 
       </div>
     </div>
-    
+
   )
 }

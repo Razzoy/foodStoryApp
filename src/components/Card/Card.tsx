@@ -1,20 +1,42 @@
-export function Card() {
+import HeartIcon from "@/components/HeartIcon/HeartIcon";
+import { useState } from "react";
+
+export type CardProps = {
+  title?: string;
+  time?: string;
+  image?: string;
+  recipeId?: string;
+  favorite?: boolean;
+};
+
+export function Card({ title, time, image, recipeId, favorite }: CardProps) {
+  if (!recipeId || favorite === undefined) return <h2>loading...</h2>;
   return (
-    <div className="bg-[url('/src/assets/img/Cheeseburgers.png')] bg-center bg-cover rounded-xl w-44 h-64 flex flex-col justify-end">
-      <div className="bg-gradient-to-t from-lime-800 from 100% rounded-xl h-36 flex flex-col justify-end">
-        <div className="p-2 flex flex-col gap-2.5">
-          <h3 className="text-white self-stretch text-sm font-semibold">
-            Hamburgers
-          </h3>
-          <div className="flex justify-between pr-4">
-            <div className="flex items-center gap-1">
-              <img src="/src/assets/icons/Watch.svg" alt="" className="w-3" />
-              <p className="text-white text-xs">30 min</p>
+    <div className="relative">
+      <a
+        className="bg-center bg-cover rounded-xl h-64 flex flex-col justify-end"
+        style={{
+          backgroundImage: `url(${
+            image ?? "/src/assets/img/Cheeseburgers.png"
+          })`,
+        }}
+        href={"/recipe/" + recipeId}
+      >
+        <div className="bg-gradient-to-t from-lime-800 from 100% rounded-xl h-36 flex flex-col justify-end">
+          <div className="p-2 flex flex-col">
+            <h3 className="text-white self-stretch text-sm font-semibold ml-2">
+              {title ?? "Cheeseburgers"}
+            </h3>
+            <div className="flex justify-between p-2">
+              <div className="flex items-center gap-1">
+                <img src="/src/assets/icons/Watch.svg" alt="" className="w-3" />
+                <p className="text-white text-xs">{time ?? "30 min"}</p>
+              </div>
             </div>
-            <img src="/src/assets/icons/HeartEmpty.svg" alt="" />
           </div>
         </div>
-      </div>
+      </a>
+      <HeartIcon recipeID={recipeId} isFavorite={favorite} />
     </div>
   );
 }
