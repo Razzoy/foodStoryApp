@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 import { Home } from "./pages/Home";
 import { MainLayout } from "./layouts/MainLayout";
 import { MyRecipes } from "./pages/MyRecipes";
@@ -12,7 +12,7 @@ import { LogInLayout } from "./layouts/LogInLayout";
 function App() {
   return (
     <>
-      <BrowserRouter>
+      <HashRouter>
         <Routes>
           <Route path={"/"} element={<MainLayout />}>
             <Route index element={<Home />} />
@@ -26,7 +26,7 @@ function App() {
             <Route index element={<Login />} />
           </Route>
         </Routes>
-      </BrowserRouter>
+      </HashRouter>
     </>
   );
 }

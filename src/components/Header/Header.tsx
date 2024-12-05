@@ -2,6 +2,8 @@ import { BurgerModal } from "../BurgerModal/BurgerModal";
 import { NavLink } from "react-router-dom";
 import { NavBarIcon } from "../NavBar/NavBarIcon/NavBarIcon";
 import { useState, useEffect } from "react";
+import logo from "../../assets/icons/Logo.svg"
+import burger from "../../assets/icons/Burger.svg"
 
 export function Header() {
   const [showModal, setShowModal] = useState(false);
@@ -24,7 +26,7 @@ export function Header() {
       {!showModal ? (
         <div className="flex z-50 justify-between px-4 py-4 bg-gradient-to-br from-white to-transparent backdrop-blur-sm sticky top-0 w-full">
           <NavLink to={"/"}>
-            <img className="w-[90px]" src="/src/assets/icons/Logo.svg" />
+            <img className="w-[90px]" src={logo} />
           </NavLink>
 
           <div className="flex gap-6">
@@ -62,7 +64,7 @@ export function Header() {
             <img
               onClick={() => setShowModal(!showModal)}
               className="hover:cursor-pointer w-7"
-              src="/src/assets/icons/Burger.svg"
+              src={burger}
             />
           </div>
         </div>

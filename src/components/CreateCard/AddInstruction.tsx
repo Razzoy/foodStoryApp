@@ -1,4 +1,6 @@
 import { useState } from "react";
+import plus from "@/assets/icons/Plus.svg"
+
 
 export function AddInstruction({
   onAdd,
@@ -40,7 +42,7 @@ export function AddInstruction({
         className="border-2 border-salmon rounded-xl py-1 px-1.5 self-end"
       >
         {" "}
-        <img src="/src/assets/icons/Plus.svg" alt="" />
+        <img src={plus} alt="" />
       </button>
     </div>
   );

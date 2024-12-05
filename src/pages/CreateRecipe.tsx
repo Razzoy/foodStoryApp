@@ -12,6 +12,8 @@ import { UrlCard } from "@/components/CreateCard/UrlCard/UrlCard";
 import { useState, FormEvent } from "react";
 import { supabase } from "../lib/supabaseClient";
 import { useNavigate } from "react-router-dom";
+import muscle from "@/assets/icons/Muscle.svg";
+import clock from "@/assets/icons/Watch.svg";
 
 export function CreateRecipe() {
   const navigate = useNavigate();
@@ -113,7 +115,7 @@ export function CreateRecipe() {
         <div className=" flex flex-col items-center">
           <img
             className="flex -center w-12 p-2"
-            src="/src/assets/icons/Muscle.svg"
+            src={muscle}
           />
           <Select name="select">
             <SelectTrigger type="button" className="w-[100px]">
@@ -127,7 +129,7 @@ export function CreateRecipe() {
           </Select>
         </div>
         <div className=" flex flex-col items-center">
-          <img className="w-12 p-2" src="/src/assets/icons/blackWatch.svg" />
+          <img className="w-12 p-2" src={clock} />
           <div className="flex gap-1">
             <input
               className="outline-salmon w-[50px] text-center border-b-2 border-salmon focus:border-none"
