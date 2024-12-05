@@ -88,6 +88,7 @@ export function PhotoCard({
             id={test}
             type="file"
             className="hidden"
+            name="image"
             onChange={(event) => {
               if (event.target.files) {
                 handleAdd(URL.createObjectURL(event.target.files[0]));
@@ -126,7 +127,8 @@ export function PhotoCard({
                   <label htmlFor={test}>
                     <input
                       className="hidden "
-                      id={test}
+                      // id={test}
+                      name="image"
                       type="file"
                       onChange={(event) => {
                         if (event.target.files) {

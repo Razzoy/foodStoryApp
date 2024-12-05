@@ -21,7 +21,7 @@ export function CreateRecipe() {
 
   //code for meal image
   const handleAddImages = (image: string) => {
-    console.log(image);
+    console.log("image", image);
     setMealImage((prev) => [...prev, image]);
   };
 
@@ -58,6 +58,9 @@ export function CreateRecipe() {
     const data = new FormData(e.target as HTMLFormElement);
 
     let obj = Object.fromEntries(data.entries());
+
+    console.log("object:", obj);
+
     obj.ingredients = JSON.parse(obj.ingredients.toString());
     obj.instruction = JSON.parse(obj.instruction.toString());
 
